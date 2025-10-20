@@ -38,8 +38,8 @@
     position:relative;border-radius:10px;padding:.15rem .4rem;margin-left:-.4rem;margin-right:-.4rem;
     transition:background .12s ease,box-shadow .12s ease,transform .05s ease;cursor:copy;
   }
-  [data-copyable]:hover{background:var(--hover);box-shadow:0 0 0 3px var(--ring);}
-  [data-copyable].copied{background:var(--copied);outline:2px solid rgba(110,231,183,.5);}
+  [data-copyable]:hover{background:var(--hover);box-shadow:0 0 0 3px var(--ring);}  
+  [data-copyable].copied{background:var(--copied);outline:2px solid rgba(110,231,183,.5);}  
 
   section.chapter{margin:28px 0}
   section.chapter h2{font-size:clamp(18px,2.2vw,26px);margin:.25rem 0 .5rem;color:var(--accent)}
@@ -59,7 +59,7 @@
     font-size:14px;display:none;box-shadow:0 10px 24px rgba(0,0,0,.35);
   }
   .kbd{font:11px/1 var(--mono);background:rgba(255,255,255,.08);
-       padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.14);}
+       padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.14);} 
 </style>
 </head>
 <body>
@@ -85,18 +85,19 @@
     <h2 data-copyable>Chapter 1: Digital Marketing Foundations</h2>
     <h3 data-copyable>Key Ideas</h3>
     <ul>
-      <li data-copyable>Digital marketing uses search, email, social, and websites to drive measurable results.</li>
-      <li data-copyable>Map campaigns to the customer journey: awareness → consideration → conversion → loyalty.</li>
-      <li data-copyable>A website is the core of your digital presence.</li>
+      <li data-copyable>Web basics power everything: domain → DNS → hosting → browser → page.</li>
+      <li data-copyable>Primary objectives: drive traffic, convert visitors, grow revenue per conversion.</li>
+      <li data-copyable>HTTPS (TLS/SSL), CMS + payments (Shopify/Stripe/etc.), and analytics are core stack.</li>
     </ul>
     <h3 data-copyable>Main Topics</h3>
     <ul>
-      <li data-copyable>Technical terms: impressions, clicks, CTR, conv., CPA, ROAS/ROI.</li>
-      <li data-copyable>Successful websites: fast, mobile‑friendly, intuitive navigation, goal‑driven.</li>
+      <li data-copyable>Traffic sources: direct, referral (paid/unpaid), search (paid/unpaid), email.</li>
+      <li data-copyable>Conversions by site type: retail (purchase), lead‑gen (form/call), media (engagement).</li>
+      <li data-copyable>Measure outcomes, not vanity metrics—optimize discovery, evaluation, payment.</li>
     </ul>
     <h3 data-copyable>Takeaways</h3>
     <ul>
-      <li data-copyable>Define clear actions to measure (sign‑ups, leads, sales) and optimize toward them.</li>
+      <li data-copyable>Define one primary conversion per site type and design journeys that maximize it.</li>
     </ul>
   </section>
 
@@ -105,18 +106,21 @@
     <h2 data-copyable>Chapter 2: Web Design (Desktop & Mobile)</h2>
     <h3 data-copyable>Key Ideas</h3>
     <ul>
-      <li data-copyable>Design impacts UX and conversion; responsiveness ensures usability across devices.</li>
-      <li data-copyable>Speed, clarity, and accessibility are non‑negotiable.</li>
+      <li data-copyable>Design for usability first; conversion‑centered patterns lift outcomes.</li>
+      <li data-copyable>Mobile‑first with progressive enhancement ensures clarity across devices.</li>
     </ul>
     <h3 data-copyable>Main Topics</h3>
     <ul>
-      <li data-copyable>Principles: simplicity, consistency, visual hierarchy, fast load.</li>
-      <li data-copyable>Page elements: headers, nav, forms, CTAs, trust badges, media.</li>
-      <li data-copyable>Landing pages: single goal, focused copy, frictionless forms.</li>
+      <li data-copyable>Usability: conventions, visual hierarchy, clear areas, obvious click targets, low distraction.</li>
+      <li data-copyable>7 Cs of CCD: Attention, Context, Clarity, Congruence, Credibility, Closing, Continuance.</li>
+      <li data-copyable>Three Questions: What is it? Why you? What next?</li>
+      <li data-copyable>Segmentation: searchers vs browsers, new vs returning, online vs in‑store, etc.</li>
+      <li data-copyable>CRO: A/B/n testing; focus on friction, value prop, CTA, and trust signals.</li>
+      <li data-copyable>Landing pages: single‑product, multiproduct, lead‑gen, subscription, long copy, single purpose.</li>
     </ul>
     <h3 data-copyable>Takeaways</h3>
     <ul>
-      <li data-copyable>Design every page around one primary goal and an obvious next step.</li>
+      <li data-copyable>Every page needs one primary goal and a fast, obvious path to complete it.</li>
     </ul>
   </section>
 
@@ -125,19 +129,21 @@
     <h2 data-copyable>Chapter 3: Analytics</h2>
     <h3 data-copyable>Key Ideas</h3>
     <ul>
-      <li data-copyable>Analytics turns behavior data into decisions.</li>
-      <li data-copyable>Track with tags: users → sessions → events → conversions.</li>
+      <li data-copyable>Analytics turns behavior data into decisions and experiments.</li>
+      <li data-copyable>Track identity via cookies/User‑ID → sessions → events → conversions.</li>
     </ul>
     <h3 data-copyable>Main Topics</h3>
     <ul>
-      <li data-copyable>Metrics: pageviews, bounce rate, session length, conversion rate.</li>
-      <li data-copyable>KPIs: metrics mapped to business objectives.</li>
-      <li data-copyable>Attribution: how channels share credit for conversions.</li>
-      <li data-copyable>Google Analytics: reports, goals/events, audiences.</li>
+      <li data-copyable>Retail KPIs: sessions, conversion rate, AOV, revenue per session (RPS).</li>
+      <li data-copyable>Lead‑gen KPIs: users, conversion rate, close rate, contract value, RPS.</li>
+      <li data-copyable>Media KPIs: sessions/users, pages per session, subs, ad revenue.</li>
+      <li data-copyable>Funnels: diagnose drop‑offs; simulate impact of step‑lift on revenue.</li>
+      <li data-copyable>Attribution: compare data‑driven vs rules; use randomized tests/ghost ads when possible.</li>
+      <li data-copyable>GA skills: tags, events, linking Ads & Search Console; analyze Acquisition/Engagement/Monetization.</li>
     </ul>
     <h3 data-copyable>Takeaways</h3>
     <ul>
-      <li data-copyable>Report less, decide more—tie every metric to a decision or action.</li>
+      <li data-copyable>Only track metrics tied to actions; prioritize experiments with highest revenue leverage.</li>
     </ul>
   </section>
 
@@ -146,19 +152,20 @@
     <h2 data-copyable>Chapter 4: On‑Site SEO</h2>
     <h3 data-copyable>Key Ideas</h3>
     <ul>
-      <li data-copyable>Help search engines understand and rank your pages.</li>
-      <li data-copyable>Relevance + quality + technical health.</li>
+      <li data-copyable>Crawl → Index → Sort → Rank; help engines assess relevance and quality.</li>
+      <li data-copyable>Match searcher intent with strong keyword placement and content value.</li>
     </ul>
     <h3 data-copyable>Main Topics</h3>
     <ul>
-      <li data-copyable>Maximizing relevance: titles, meta descriptions, headers, internal links, schema.</li>
-      <li data-copyable>Choosing target phrases: intent, volume, difficulty, SERP features.</li>
-      <li data-copyable>High‑quality pages: original, comprehensive, helpful, well‑structured.</li>
-      <li data-copyable>Local search: NAP consistency, Google Business Profile, reviews.</li>
+      <li data-copyable>Keyword usage: URL, title tag, headers, main content, alt text, internal/anchor links.</li>
+      <li data-copyable>Selection & mapping: relevance, volume, competition, current rank; unique term per page.</li>
+      <li data-copyable>Quality signals: speed, originality, freshness, depth, mobile usability, security.</li>
+      <li data-copyable>Technical: fix orphan pages, XML sitemap, past abuses; ensure mobile‑first & HTTPS.</li>
+      <li data-copyable>Local SEO: Google Business Profile, NAP consistency, reviews.</li>
     </ul>
     <h3 data-copyable>Takeaways</h3>
     <ul>
-      <li data-copyable>Write for users first; align structure and keywords so engines can verify usefulness.</li>
+      <li data-copyable>Write naturally for users; structure pages so algorithms can verify usefulness.</li>
     </ul>
   </section>
 
@@ -167,18 +174,19 @@
     <h2 data-copyable>Chapter 5: Off‑Site SEO</h2>
     <h3 data-copyable>Key Ideas</h3>
     <ul>
-      <li data-copyable>Authority mostly comes from quality backlinks and brand mentions.</li>
+      <li data-copyable>Authority is earned via quality, relevant backlinks and brand mentions.</li>
     </ul>
     <h3 data-copyable>Main Topics</h3>
     <ul>
-      <li data-copyable>Links: editorial vs. self‑created; follow vs. nofollow; anchor text.</li>
-      <li data-copyable>Popularity metrics: PageRank concepts, domain/URL authority, link quality signals.</li>
-      <li data-copyable>Link building: outreach, partnerships, digital PR, broken‑link reclamation.</li>
-      <li data-copyable>Content marketing: assets people want to cite and share.</li>
+      <li data-copyable>Link types: editorial, manual, manufactured; attributes: follow, nofollow, sponsored.</li>
+      <li data-copyable>Popularity signals: quantity, relevance, anchor text, freshness, diversity, social sharing.</li>
+      <li data-copyable>Link building: content + outreach, GMB, guest posts; avoid manipulative schemes.</li>
+      <li data-copyable>Content marketing/linkbait: comprehensive guides, visuals, tools, data stories that attract links.</li>
+      <li data-copyable>Create value for: customers, industry pros, ancillary businesses.</li>
     </ul>
     <h3 data-copyable>Takeaways</h3>
     <ul>
-      <li data-copyable>Earn links by publishing unique value; avoid manipulative schemes.</li>
+      <li data-copyable>Publish unique, useful assets and promote them to earn editorial links at scale.</li>
     </ul>
   </section>
 
@@ -187,20 +195,21 @@
     <h2 data-copyable>Chapter 6: Paid Search Marketing</h2>
     <h3 data-copyable>Key Ideas</h3>
     <ul>
-      <li data-copyable>PPC auctions show ads to intent‑rich users; success = relevance × bidding × UX.</li>
+      <li data-copyable>PPC reaches high‑intent users; profit depends on relevance × Quality Score × bidding.</li>
     </ul>
     <h3 data-copyable>Main Topics</h3>
     <ul>
-      <li data-copyable>How it works: auctions, Quality Score/Ad Rank, CPC.</li>
-      <li data-copyable>Choosing targets: keyword research, match types, negatives, intent.</li>
-      <li data-copyable>Ad copy: strong hooks, benefits, proof, clear CTA, ad extensions.</li>
-      <li data-copyable>Buying ad space: budgets, bidding strategies, geo/ device/ schedule.</li>
-      <li data-copyable>Analyzing results: CTR, CVR, CPA, ROAS; testing & iteration.</li>
-      <li data-copyable>Google Ads structure: account → campaign → ad group → ads & keywords.</li>
+      <li data-copyable>Auctions & Ad Rank: bid × Quality Score; improve via ad relevance and UX, not just higher bids.</li>
+      <li data-copyable>Match types: exact (tight), phrase (related intent), broad (wide/low CVR); use negatives.</li>
+      <li data-copyable>Ad copy (RSA): keyword relevance, UVP, CTA; test headlines/descriptions; use extensions.</li>
+      <li data-copyable>Ad types: search, Shopping, local, call, RLSA, metasearch.</li>
+      <li data-copyable>Bidding: manual CPC, target CPA/ROAS, automated strategies, Enhanced CPC.</li>
+      <li data-copyable>Structure: account → campaigns → ad groups → ads & keywords; settings by device/geo/lang/budget.</li>
+      <li data-copyable>Optimization: monitor CTR, CPC, CVR, CPA, ROAS; iterate creatives, bids, and landing pages.</li>
     </ul>
     <h3 data-copyable>Takeaways</h3>
     <ul>
-      <li data-copyable>Test, measure, and optimize continuously to improve ROI.</li>
+      <li data-copyable>Continuously test keywords, ads, and pages; scale winners and cut waste to hit CPA/ROAS goals.</li>
     </ul>
   </section>
 
@@ -216,10 +225,15 @@
     container.addEventListener('dblclick', async (ev)=>{
       const target=ev.target.closest('[data-copyable]');
       if(!target)return;
-      const text=(target.innerText||target.textContent||"").replace(/\\s+/g,' ').trim();
+      const text=(target.innerText||target.textContent||"").replace(/\s+/g,' ').trim();
       if(!text)return;
-      try{await navigator.clipboard.writeText(text);}
-      catch{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch{}ta.remove();}
+      try{await navigator.clipboard.writeText(text);} 
+      catch{
+        const ta=document.createElement('textarea');
+        ta.value=text;document.body.appendChild(ta);ta.select();
+        try{document.execCommand('copy');}catch{}
+        ta.remove();
+      }
       target.classList.add('copied');setTimeout(()=>target.classList.remove('copied'),650);
       toast.textContent='Copied ✔';toast.style.display='block';toast.style.opacity='0';toast.style.transform='translateY(-6px)';
       requestAnimationFrame(()=>{toast.style.transition='opacity .18s ease,transform .18s ease';toast.style.opacity='1';toast.style.transform='translateY(0)';});
@@ -237,3 +251,4 @@
 </script>
 </body>
 </html>
+
