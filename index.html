@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Digital Marketing — Copy-on-Double-Click Summary</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#0f1733; --ink:#e8ecff; --muted:#a9b3d1;
+    --accent:#8bb2ff; --accent2:#6ee7b7;
+    --ring: rgba(139,178,255,.25); --hover: rgba(139,178,255,.08); --copied: rgba(110,231,183,.18);
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; color:var(--ink);
+    background: radial-gradient(1200px 800px at 10% -10%, #1b2452 0%, #0b1020 40%, #050815 100%);
+    font-family:var(--sans); line-height:1.55;
+  }
+
+  .wrap{
+    max-width:1100px; margin:clamp(16px,3vw,32px) auto;
+    padding:clamp(16px,3vw,32px);
+    background:color-mix(in oklab, var(--panel) 92%, black 8%);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+  }
+
+  header h1{margin:0 0 8px; font-size:clamp(22px, 3.2vw, 36px); letter-spacing:.2px}
+  header p{margin:.25rem 0 1rem; color:var(--muted)}
+  hr{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);margin:20px 0;}
+
+  [data-copyable]{
+    position:relative;border-radius:10px;padding:.15rem .4rem;margin-left:-.4rem;margin-right:-.4rem;
+    transition:background .12s ease,box-shadow .12s ease,transform .05s ease;cursor:copy;
+  }
+  [data-copyable]:hover{background:var(--hover);box-shadow:0 0 0 3px var(--ring);}
+  [data-copyable].copied{background:var(--copied);outline:2px solid rgba(110,231,183,.5);}
+
+  section.chapter{margin:28px 0}
+  section.chapter h2{font-size:clamp(18px,2.2vw,26px);margin:.25rem 0 .5rem;color:var(--accent)}
+  section.chapter h3{font-size:clamp(15px,1.7vw,20px);margin:.75rem 0 .25rem;color:var(--accent2)}
+  ul{margin:.2rem 0 .75rem 1.25rem;padding:0}
+  li{margin:.15rem 0}
+  .legend{font:12px/1.4 var(--mono); color:var(--muted); margin-top:.5rem}
+
+  .toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:14px 0 20px}
+  .toc-card{padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.03)}
+  .toc-card a{color:var(--accent2);text-decoration:none}
+  .toc-card a:hover{text-decoration:underline}
+
+  .toast{
+    position:fixed;top:14px;right:14px;background:#0a1b12;color:#d5ffe9;
+    border:1px solid rgba(110,231,183,.4);padding:10px 12px;border-radius:10px;
+    font-size:14px;display:none;box-shadow:0 10px 24px rgba(0,0,0,.35);
+  }
+  .kbd{font:11px/1 var(--mono);background:rgba(255,255,255,.08);
+       padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.14);}
+</style>
+</head>
+<body>
+<div class="wrap" id="content">
+  <header>
+    <h1 data-copyable>📘 Digital Marketing — Chapters 1–6 Summary</h1>
+    <p class="legend">Tip: <span class="kbd">Double‑click</span> any line or bullet to copy it.</p>
+  </header>
+
+  <div class="toc-grid">
+    <div class="toc-card"><a href="#ch1" data-copyable>Chapter 1 · Digital Marketing Foundations</a></div>
+    <div class="toc-card"><a href="#ch2" data-copyable>Chapter 2 · Web Design (Desktop & Mobile)</a></div>
+    <div class="toc-card"><a href="#ch3" data-copyable>Chapter 3 · Analytics</a></div>
+    <div class="toc-card"><a href="#ch4" data-copyable>Chapter 4 · On‑Site SEO</a></div>
+    <div class="toc-card"><a href="#ch5" data-copyable>Chapter 5 · Off‑Site SEO</a></div>
+    <div class="toc-card"><a href="#ch6" data-copyable>Chapter 6 · Paid Search Marketing</a></div>
+  </div>
+
+  <hr />
+
+  <!-- Chapter 1 -->
+  <section class="chapter" id="ch1">
+    <h2 data-copyable>Chapter 1: Digital Marketing Foundations</h2>
+    <h3 data-copyable>Key Ideas</h3>
+    <ul>
+      <li data-copyable>Digital marketing uses search, email, social, and websites to drive measurable results.</li>
+      <li data-copyable>Map campaigns to the customer journey: awareness → consideration → conversion → loyalty.</li>
+      <li data-copyable>A website is the core of your digital presence.</li>
+    </ul>
+    <h3 data-copyable>Main Topics</h3>
+    <ul>
+      <li data-copyable>Technical terms: impressions, clicks, CTR, conv., CPA, ROAS/ROI.</li>
+      <li data-copyable>Successful websites: fast, mobile‑friendly, intuitive navigation, goal‑driven.</li>
+    </ul>
+    <h3 data-copyable>Takeaways</h3>
+    <ul>
+      <li data-copyable>Define clear actions to measure (sign‑ups, leads, sales) and optimize toward them.</li>
+    </ul>
+  </section>
+
+  <!-- Chapter 2 -->
+  <section class="chapter" id="ch2">
+    <h2 data-copyable>Chapter 2: Web Design (Desktop & Mobile)</h2>
+    <h3 data-copyable>Key Ideas</h3>
+    <ul>
+      <li data-copyable>Design impacts UX and conversion; responsiveness ensures usability across devices.</li>
+      <li data-copyable>Speed, clarity, and accessibility are non‑negotiable.</li>
+    </ul>
+    <h3 data-copyable>Main Topics</h3>
+    <ul>
+      <li data-copyable>Principles: simplicity, consistency, visual hierarchy, fast load.</li>
+      <li data-copyable>Page elements: headers, nav, forms, CTAs, trust badges, media.</li>
+      <li data-copyable>Landing pages: single goal, focused copy, frictionless forms.</li>
+    </ul>
+    <h3 data-copyable>Takeaways</h3>
+    <ul>
+      <li data-copyable>Design every page around one primary goal and an obvious next step.</li>
+    </ul>
+  </section>
+
+  <!-- Chapter 3 -->
+  <section class="chapter" id="ch3">
+    <h2 data-copyable>Chapter 3: Analytics</h2>
+    <h3 data-copyable>Key Ideas</h3>
+    <ul>
+      <li data-copyable>Analytics turns behavior data into decisions.</li>
+      <li data-copyable>Track with tags: users → sessions → events → conversions.</li>
+    </ul>
+    <h3 data-copyable>Main Topics</h3>
+    <ul>
+      <li data-copyable>Metrics: pageviews, bounce rate, session length, conversion rate.</li>
+      <li data-copyable>KPIs: metrics mapped to business objectives.</li>
+      <li data-copyable>Attribution: how channels share credit for conversions.</li>
+      <li data-copyable>Google Analytics: reports, goals/events, audiences.</li>
+    </ul>
+    <h3 data-copyable>Takeaways</h3>
+    <ul>
+      <li data-copyable>Report less, decide more—tie every metric to a decision or action.</li>
+    </ul>
+  </section>
+
+  <!-- Chapter 4 -->
+  <section class="chapter" id="ch4">
+    <h2 data-copyable>Chapter 4: On‑Site SEO</h2>
+    <h3 data-copyable>Key Ideas</h3>
+    <ul>
+      <li data-copyable>Help search engines understand and rank your pages.</li>
+      <li data-copyable>Relevance + quality + technical health.</li>
+    </ul>
+    <h3 data-copyable>Main Topics</h3>
+    <ul>
+      <li data-copyable>Maximizing relevance: titles, meta descriptions, headers, internal links, schema.</li>
+      <li data-copyable>Choosing target phrases: intent, volume, difficulty, SERP features.</li>
+      <li data-copyable>High‑quality pages: original, comprehensive, helpful, well‑structured.</li>
+      <li data-copyable>Local search: NAP consistency, Google Business Profile, reviews.</li>
+    </ul>
+    <h3 data-copyable>Takeaways</h3>
+    <ul>
+      <li data-copyable>Write for users first; align structure and keywords so engines can verify usefulness.</li>
+    </ul>
+  </section>
+
+  <!-- Chapter 5 -->
+  <section class="chapter" id="ch5">
+    <h2 data-copyable>Chapter 5: Off‑Site SEO</h2>
+    <h3 data-copyable>Key Ideas</h3>
+    <ul>
+      <li data-copyable>Authority mostly comes from quality backlinks and brand mentions.</li>
+    </ul>
+    <h3 data-copyable>Main Topics</h3>
+    <ul>
+      <li data-copyable>Links: editorial vs. self‑created; follow vs. nofollow; anchor text.</li>
+      <li data-copyable>Popularity metrics: PageRank concepts, domain/URL authority, link quality signals.</li>
+      <li data-copyable>Link building: outreach, partnerships, digital PR, broken‑link reclamation.</li>
+      <li data-copyable>Content marketing: assets people want to cite and share.</li>
+    </ul>
+    <h3 data-copyable>Takeaways</h3>
+    <ul>
+      <li data-copyable>Earn links by publishing unique value; avoid manipulative schemes.</li>
+    </ul>
+  </section>
+
+  <!-- Chapter 6 -->
+  <section class="chapter" id="ch6">
+    <h2 data-copyable>Chapter 6: Paid Search Marketing</h2>
+    <h3 data-copyable>Key Ideas</h3>
+    <ul>
+      <li data-copyable>PPC auctions show ads to intent‑rich users; success = relevance × bidding × UX.</li>
+    </ul>
+    <h3 data-copyable>Main Topics</h3>
+    <ul>
+      <li data-copyable>How it works: auctions, Quality Score/Ad Rank, CPC.</li>
+      <li data-copyable>Choosing targets: keyword research, match types, negatives, intent.</li>
+      <li data-copyable>Ad copy: strong hooks, benefits, proof, clear CTA, ad extensions.</li>
+      <li data-copyable>Buying ad space: budgets, bidding strategies, geo/ device/ schedule.</li>
+      <li data-copyable>Analyzing results: CTR, CVR, CPA, ROAS; testing & iteration.</li>
+      <li data-copyable>Google Ads structure: account → campaign → ad group → ads & keywords.</li>
+    </ul>
+    <h3 data-copyable>Takeaways</h3>
+    <ul>
+      <li data-copyable>Test, measure, and optimize continuously to improve ROI.</li>
+    </ul>
+  </section>
+
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite">Copied ✔</div>
+
+<script>
+  (function(){
+    const container=document.getElementById('content');
+    const toast=document.getElementById('toast');
+
+    container.addEventListener('dblclick', async (ev)=>{
+      const target=ev.target.closest('[data-copyable]');
+      if(!target)return;
+      const text=(target.innerText||target.textContent||"").replace(/\\s+/g,' ').trim();
+      if(!text)return;
+      try{await navigator.clipboard.writeText(text);}
+      catch{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch{}ta.remove();}
+      target.classList.add('copied');setTimeout(()=>target.classList.remove('copied'),650);
+      toast.textContent='Copied ✔';toast.style.display='block';toast.style.opacity='0';toast.style.transform='translateY(-6px)';
+      requestAnimationFrame(()=>{toast.style.transition='opacity .18s ease,transform .18s ease';toast.style.opacity='1';toast.style.transform='translateY(0)';});
+      clearTimeout(window._t);window._t=setTimeout(()=>{toast.style.opacity='0';toast.style.transform='translateY(-6px)';setTimeout(()=>{toast.style.display='none';},200);},1100);
+    },{passive:true});
+
+    container.addEventListener('keydown',(ev)=>{
+      if(ev.key!=='Enter')return;
+      const target=ev.target.closest('[data-copyable]');
+      if(!target)return;
+      ev.preventDefault();
+      target.dispatchEvent(new MouseEvent('dblclick',{bubbles:true}));
+    });
+  })();
+</script>
+</body>
+</html>
