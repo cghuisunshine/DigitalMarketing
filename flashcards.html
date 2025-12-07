@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Marketing & UX Flashcards (MCQ)</title>
+  <title>Digital Marketing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
@@ -123,19 +123,73 @@
       font-size: 0.95rem;
     }
 
+    .options {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .option {
+      text-align: left;
+      border: 1px solid #1f2937;
+      background: #0b1220;
+      color: #e5e7eb;
+      padding: 0.55rem 0.7rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .option:hover {
+      border-color: #38bdf8;
+      background: #0f172a;
+    }
+
+    .option.correct {
+      border-color: #22c55e;
+      background: #0f2a1d;
+      color: #d1fae5;
+    }
+
+    .option.incorrect {
+      border-color: #ef4444;
+      background: #2a0f12;
+      color: #fecdd3;
+    }
+
     .answer {
       font-weight: 700;
+    }
+
+    .feedback {
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      border-radius: 12px;
+      background: #0b1324;
+      border: 1px solid #1f2937;
+      font-size: 0.9rem;
+      display: grid;
+      gap: 0.25rem;
+      color: #cbd5e1;
+    }
+
+    .feedback strong {
+      color: #e5e7eb;
     }
 
     .nav-hint {
       font-size: 0.85rem;
       color: #94a3b8;
     }
+
+    .stats {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
   </style>
 </head>
 <body>
 
-<h1>Flashcards</h1>
+<h1>DigitalMarketing</h1>
 
 <div class="controls">
   <button id="prevBtn">← Prev</button>
@@ -146,6 +200,7 @@
 
 <div class="deck">
   <div class="progress" id="progress"></div>
+  <div class="stats" id="stats"></div>
   <div class="card" id="card">
     <div class="card-inner" id="cardInner">
       <div class="face front" id="front"></div>
@@ -161,6 +216,7 @@
 <!-- ✅ MAIN APP LOGIC -->
 <script>
   const progressEl = document.getElementById("progress");
+  const statsEl = document.getElementById("stats");
   const cardEl = document.getElementById("card");
   const cardInner = document.getElementById("cardInner");
   const front = document.getElementById("front");
@@ -169,6 +225,8 @@
   let order = [...cards];
   let index = 0;
   let didSwipe = false;
+  let feedbackEl = null;
+  const selectionState = new Map(); // index -> boolean (correct?)
 
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
@@ -183,7 +241,10 @@
     front.innerHTML = `
       <div class="meta">${current.topic || "Topic"}</div>
       <h2>${current.question}</h2>
-      <ul>${current.options.map(o => `<li>${o}</li>`).join("")}</ul>
+      <div class="options">
+        ${current.options.map((o, i) => `<button class="option" data-idx="${i}">${o}</button>`).join("")}
+      </div>
+      <div id="feedback" class="feedback" style="display:none;"></div>
     `;
 
     back.innerHTML = `
@@ -191,7 +252,52 @@
       <div>${current.explanation || ""}</div>
     `;
 
+    feedbackEl = document.getElementById("feedback");
     progressEl.textContent = `Card ${index + 1} / ${order.length}`;
+    updateStats();
+
+    attachOptionHandlers();
+  }
+
+  function attachOptionHandlers() {
+    const optionButtons = front.querySelectorAll(".option");
+    optionButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const selected = btn.textContent.trim();
+        const correct = order[index].answer;
+
+        optionButtons.forEach((b) => b.classList.remove("selected", "correct", "incorrect"));
+        optionButtons.forEach((b) => {
+          if (b.textContent.trim() === correct) {
+            b.classList.add("correct");
+          }
+        });
+        if (selected !== correct) {
+          btn.classList.add("incorrect");
+        }
+
+        showFeedback(selected, correct, order[index].explanation || "");
+        selectionState.set(index, selected === correct);
+        updateStats();
+      });
+    });
+  }
+
+  function showFeedback(selected, correct, explanation) {
+    if (!feedbackEl) return;
+    feedbackEl.style.display = "grid";
+    feedbackEl.innerHTML = `
+      <div><strong>Your choice:</strong> ${selected}</div>
+      <div><strong>Correct:</strong> ${correct}</div>
+      <div><strong>Why:</strong> ${explanation}</div>
+    `;
+  }
+
+  function updateStats() {
+    const answered = selectionState.size;
+    const correct = [...selectionState.values()].filter(Boolean).length;
+    statsEl.textContent = `Score: ${correct} / ${answered || 0}`;
   }
 
   function next() {
