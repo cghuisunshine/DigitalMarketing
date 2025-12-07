@@ -275,7 +275,7 @@
           "Knowledge",
           "Content"
         ],
-        answer: "Content",
+        answer: "Design",
         explanation:
           "This principle means that the message (content/copy) should drive the design, not the other way around. You first decide what needs to be communicated, and then design the layout to support and enhance that message."
       },
@@ -345,13 +345,6 @@
         answer: "The order of the information on the landing page",
         explanation:
           "Information hierarchy controls how users visually and mentally process content in priority order."
-      },
-      {
-        question: "Copy informs, not the other way around.",
-        options: ["Design", "Text", "Knowledge", "Content"],
-        answer: "Design",
-        explanation:
-          "Design must follow the message and purpose of the copy, not override it."
       },
       {
         question:
@@ -726,17 +719,6 @@
         explanation: "Page one rankings deliver the fastest gains with minimal effort."
       },
       {
-        question: "The benefit of keyword mapping is:",
-        options: [
-          "Ensure best page ranks",
-          "Organize SEO efforts",
-          "Prevent keyword cannibalization",
-          "All of the above"
-        ],
-        answer: "All of the above",
-        explanation: "All listed advantages are true."
-      },
-      {
         question: "Why is a high bounce rate a negative quality signal?",
         options: [
           "It wastes server bandwidth",
@@ -809,28 +791,6 @@
         explanation: "More unique referring domains improves authority."
       },
       {
-        question: "An editorial link is:",
-        options: [
-          "A link created by a newspaper editor",
-          "Submitted to a directory",
-          "A quid pro quo agreement",
-          "A voluntary link because of content value"
-        ],
-        answer: "A voluntary link because of content value",
-        explanation: "Editorial links are natural and earned."
-      },
-      {
-        question: "Press release links are considered:",
-        options: [
-          "Editorial links",
-          "Manual links",
-          "Manufactured links",
-          "Nofollow links"
-        ],
-        answer: "Manufactured links",
-        explanation: "They are created intentionally via promotion."
-      },
-      {
         question: "Writing a guest blog post with your own links provides:",
         options: [
           "Editorial links",
@@ -873,95 +833,10 @@
         explanation: "Google Ads supports broad, phrase, and exact match types; precise match is not valid."
       },
       {
-        question: "Which is higher: the site bounce rate or the homepage's bounce rate?",
-        options: ["The site bounce rate", "The homepage's bounce rate"],
-        answer: "The homepage's bounce rate",
-        explanation: "Homepage bounce rate is 100/200 = 50%. Site bounce rate is (100+100)/500 = 40%, so homepage is higher."
-      },
-      {
-        question: "What is the site bounce rate?",
-        options: ["40%", "30%", "20%", "50%"],
-        answer: "40%",
-        explanation: "200 total bounces out of 500 sessions equals 40%."
-      },
-      {
         question: "Were the 2,000 paid sessions profitable?",
         options: ["Yes", "No"],
         answer: "Yes",
         explanation: "$20,000 revenue minus $10,000 ad cost leaves $10,000 profit."
-      },
-      {
-        question: "What is the conversion rate and close rate?",
-        options: ["8%; 25%", "8%; 20%", "10%; 20%", "20%; 8%"],
-        answer: "8%; 25%",
-        explanation: "80 leads from 1,000 visitors = 8% conversion; 20 bookings from 80 leads = 25% close."
-      },
-      {
-        question: "A low conversion rate can be caused by all EXCEPT:",
-        options: ["Poor web design", "Poor audience selection", "Technical glitches", "Overly responsive design"],
-        answer: "Overly responsive design",
-        explanation: "Responsive design improves usability and typically increases conversions."
-      },
-      {
-        question: "Channel analysis enables an analytics user to:",
-        options: [
-          "Determine which ad copy produced the highest click-through rate",
-          "Investigate which traffic source produced the best-quality traffic",
-          "Conduct counterfactual analyses of increased marketing investment",
-          "Find ways to shift paid traffic to unpaid traffic"
-        ],
-        answer: "Investigate which traffic source produced the best-quality traffic",
-        explanation: "Channel analysis compares traffic sources and their performance quality."
-      },
-      {
-        question: "The most reliable way to measure advertising effectiveness is:",
-        options: [
-          "Stop advertising altogether",
-          "Use Google's data-driven attribution tool",
-          "Use linear attribution",
-          "Conduct a carefully controlled experiment"
-        ],
-        answer: "Conduct a carefully controlled experiment",
-        explanation: "Controlled experiments isolate cause and effect for ad impact."
-      },
-      {
-        question: "Organic search results are typically displayed:",
-        options: ["On page 2", "At the top of the SERP", "Below the paid ads", "Interspersed with paid ads"],
-        answer: "Below the paid ads",
-        explanation: "Paid ads appear above organic listings."
-      },
-      {
-        question: 'For a search engine, "relevance" refers to:',
-        options: [
-          "How well content matches the searcher's query",
-          "Whether a website has been visited before",
-          "The traffic level of the website",
-          "How many pages on the website link internally"
-        ],
-        answer: "How well content matches the searcher's query",
-        explanation: "Relevance measures how well the page content aligns with user intent."
-      },
-      {
-        question: "Jane.com sells clothing and accessories. Which URL should the maternity category page use?",
-        options: [
-          "https://jane.com/category5",
-          "https://maternity.jane.com/",
-          "https://jane.maternity.com/",
-          "https://jane.com/maternity"
-        ],
-        answer: "https://jane.com/maternity",
-        explanation: "A clean, descriptive subfolder is best for SEO and user clarity."
-      },
-      {
-        question: 'Including the word "maternity" in image alt text also helps:',
-        options: [
-          "Better organization",
-          "Images show in image search",
-          "Other pages rank",
-          "Product pages auto-optimize"
-        ],
-        answer: "Images show in image search",
-        explanation: "Alt text improves relevance for image search visibility."
       },
       {
         question: "A keyword may not be worth pursuing if:",
@@ -982,17 +857,6 @@
         explanation: "Small gains near page one yield the fastest traffic improvements."
       },
       {
-        question: "The benefit of keyword mapping is:",
-        options: [
-          "Correct page per query",
-          "Organize SEO",
-          "Prevents cannibalization",
-          "All of the above"
-        ],
-        answer: "All of the above",
-        explanation: "Mapping aligns queries to pages, keeps SEO organized, and prevents overlap."
-      },
-      {
         question: "Why is a high bounce-back rate bad?",
         options: ["Wastes bandwidth", "Indicates click fraud", "User didn't like content", "Low conversion"],
         answer: "User didn't like content",
@@ -1003,23 +867,6 @@
         options: ["Register with Google My Business", "Ask for Yelp reviews", "Run ads", "Rename business"],
         answer: "Register with Google My Business",
         explanation: "Verification in Google Business Profile is foundational for local SEO visibility."
-      },
-      {
-        question: "What is the anchor text of this link: Fashion deals?",
-        options: ["<a href>", "http://jane.com", "Fashion deals", "</a>"],
-        answer: "Fashion deals",
-        explanation: "Anchor text is the clickable text shown to users."
-      },
-      {
-        question: "How will this link be treated differently by search engines?",
-        options: [
-          "Opens new window",
-          "Will not pass link authority",
-          "Used for image",
-          "Shows unsecured"
-        ],
-        answer: "Will not pass link authority",
-        explanation: "A nofollow link does not transfer ranking equity."
       },
       {
         question: "How will 100 links to blue widgets affect homepage ranking?",
@@ -1038,23 +885,6 @@
         options: ["Higher link diversity", "More social", "Black-hat signal", "Only one counted"],
         answer: "Higher link diversity",
         explanation: "Search engines value varied referring domains more than many links from one site."
-      },
-      {
-        question: "An editorial link is:",
-        options: [
-          "Created by editor",
-          "Directory submission",
-          "Quid pro quo",
-          "Voluntary content-based link"
-        ],
-        answer: "Voluntary content-based link",
-        explanation: "Editorial links are earned naturally because content merits them."
-      },
-      {
-        question: "Press release backlinks are considered:",
-        options: ["Editorial", "Manual", "Manufactured", "Nofollow"],
-        answer: "Editorial",
-        explanation: "They come from independent coverage generated by the press release."
       },
       {
         question: "Guest blogging backlinks are:",
@@ -1307,5 +1137,676 @@
         answer: "Pre-convert the consumer",
         explanation:
           "Display ads introduce, attract, and encourage action, but conversion should happen on the landing page."
+      },
+      {
+        question:
+          "To determine whether a new ad copy is better at attracting attention, an advertiser should conduct an A/B test and measure:",
+        options: [
+          "the click-through rate",
+          "the conversion rate",
+          "the impression volume",
+          "the ROAS"
+        ],
+        answer: "the click-through rate",
+        explanation:
+          "Click-through rate (CTR) directly measures how effectively an ad attracts attention and motivates users to click."
+      },
+      {
+        question:
+          "When a consumer clicks on a display ad, the landing page should match the ad's:",
+        options: [
+          "Value proposition",
+          "Color scheme",
+          "Imagery",
+          "All of these are correct"
+        ],
+        answer: "All of these are correct",
+        explanation:
+          "For the best user experience and higher conversion rates, the landing page should align with the ad’s message, visual style, and imagery to ensure consistency and trust."
+      },
+      {
+        question: "Retail websites can most advisedly grow their email list by:",
+        options: [
+          "Automatically putting all customers on the broadcast email list",
+          "Allowing customers to sign up for the email list during the checkout procedure",
+          "Putting an email sign-up pop-up advertisement on every page of the website",
+          "Requiring an email sign-up before allowing customers to shop on the site"
+        ],
+        answer: "Allowing customers to sign up for the email list during the checkout procedure",
+        explanation:
+          "Opt-in during checkout is effective and ethical because customers are engaged and consent is explicit."
+      },
+      {
+        question: "The primary advantage of a short email sign-up form is that:",
+        options: [
+          "Only customers with serious interest are likely to sign up",
+          "It attracts a higher volume of sign-ups than a longer form",
+          "The company will have more information about customers to enable improved email content targeting",
+          "Marketing automation is only possible with short email forms"
+        ],
+        answer: "It attracts a higher volume of sign-ups than a longer form",
+        explanation:
+          "Shorter forms reduce friction and effort for users, which increases the likelihood that more people will complete the sign-up process."
+      },
+      {
+        question: "A B2B services company is likely to use email marketing to:",
+        options: [
+          "Drive immediate conversions",
+          "Pursue corporate recruiting",
+          "Broadcast messages to its employees",
+          "Engage in lead nurturing"
+        ],
+        answer: "Engage in lead nurturing",
+        explanation:
+          "B2B cycles are long and complex, so email is best used to educate, build trust, and nurture leads over time."
+      },
+      {
+        question: "Email marketing can be especially effective for a search engine like Kayak or Expedia because:",
+        options: [
+          "It typically has information about deals that might interest its customers",
+          "Search engines are not allowed to utilize other marketing channels",
+          "Search engines typically generate no other form of direct traffic",
+          "People cannot put emails from search engines in a separate commercial folder within their email account"
+        ],
+        answer: "It typically has information about deals that might interest its customers",
+        explanation:
+          "Travel search engines constantly collect price and route data, letting them send timely, relevant deal emails aligned to user interests."
+      },
+      {
+        question: "Email marketers can target different segments by:",
+        options: [
+          "Sending emails only to specific segments of the email list",
+          "Changing portions of content for each segment within an email",
+          "Both sending emails only to specific segments of the email list AND changing portions of content for each segment within an email",
+          "None of these are correct"
+        ],
+        answer:
+          "Both sending emails only to specific segments of the email list AND changing portions of content for each segment within an email",
+        explanation:
+          "Email segmentation allows marketers to target groups either by sending to certain segments or by dynamically changing content for different segments."
+      },
+      {
+        question:
+          "A company sends out a broadcast email to its entire email list informing the list about Black Friday deals. At 6:00 pm on Black Friday, the company sends out an email only to members of its email list that (1) clicked on the previous email and (2) did not make a purchase. This second email is an example of:",
+        options: ["A broadcast email", "A transactional email", "A triggered email", "An onboarding email"],
+        answer: "A triggered email",
+        explanation:
+          "The second email fires based on specific user behavior—clicked but did not purchase—so it is a triggered email."
+      },
+      {
+        question: "To determine the winner of an A/B test on a subject line, an email marketer should use:",
+        options: ["The open rate", "The click-through rate", "The conversion rate", "The churn rate"],
+        answer: "The open rate",
+        explanation:
+          "Subject lines primarily influence opens, so open rate is the right metric to evaluate subject line tests."
+      },
+      {
+        question:
+          "Why should email marketers remove from their email list any consumers who have not opened an email for several months?",
+        options: [
+          "Including these recipients drives down email metrics and makes the email marketer look bad",
+          "Only recipients who have made a purchase within the last month have any chance of ever purchasing again",
+          "Including these recipients puts the company at risk of being blocked by spam filters",
+          "Large databases are difficult to manage, so a company should try to keep email lists as small as possible"
+        ],
+        answer: "Including these recipients puts the company at risk of being blocked by spam filters",
+        explanation:
+          "Continuing to email inactive recipients hurts engagement rates and sender reputation, increasing spam filtering risk."
+      },
+      {
+        question:
+          "After a B2B services company closes a deal with Company X, email marketing may still be useful for purposes of:",
+        options: [
+          "Training the employees within Company X",
+          "Nurturing leads from Company X",
+          "Generating leads from Company X",
+          "Qualifying leads from Company X"
+        ],
+        answer: "Training the employees within Company X",
+        explanation:
+          "Post-sale, email is useful for onboarding, training, and support; lead generation and qualification are no longer needed for that customer."
+      },
+      {
+        question:
+          "If an email marketer has a good email list and lots of information about the users on this list, marketing automation would be useful for:",
+        options: [
+          "Revamping the segmentation system",
+          "Automatically creating new content for emails",
+          "Creating new onboarding email copy",
+          "Targeting emails to the right users based on their ongoing behavior"
+        ],
+        answer: "Targeting emails to the right users based on their ongoing behavior",
+        explanation:
+          "Marketing automation leverages behavioral data to trigger and target messages; it doesn’t write the content or rebuild segmentation on its own."
+      },
+      {
+        question: "Posting on a company's social media profiles can improve company profit by:",
+        options: [
+          "Facilitating purchases from first-time customers",
+          "Increasing loyalty of past and current customers",
+          "Improving SEO and thereby facilitating first-time customer purchases",
+          "All of these are correct"
+        ],
+        answer: "All of these are correct",
+        explanation:
+          "Social media can attract new customers, nurture loyalty with existing ones, and bolster SEO visibility—all of which contribute to profit."
+      },
+      {
+        question: "What advantage does a social network have over a display network for paid advertising?",
+        options: [
+          "Social media networks typically have more intimate knowledge of their users' interests",
+          "Ads on social media command more attention than banner ads on a display network",
+          "Ads on social media provide a great number of engagement options",
+          "All of these are correct"
+        ],
+        answer: "All of these are correct",
+        explanation:
+          "Social networks combine detailed user data, higher attention levels, and multiple engagement formats, making them powerful for paid campaigns."
+      },
+      {
+        question:
+          "Social listening usually entails (1) scraping all public mentions of a company on social media, (2) coding those mentions as positive, negative, or neutral, and (3):",
+        options: [
+          "Monetizing this information",
+          "Summarizing average sentiment about the company",
+          "Responding to all social media statements with a form letter",
+          "Making excuses for negative statements"
+        ],
+        answer: "Summarizing average sentiment about the company",
+        explanation:
+          "Social listening aggregates and codes mentions to report on overall sentiment; it is not about monetization or automated responses."
+      },
+      {
+        question: "Which of the following steps is NOT a part of the social media plan?",
+        options: [
+          "Register the company on all social platforms",
+          "Determine the objective",
+          "Plan the content",
+          "Measure success"
+        ],
+        answer: "Register the company on all social platforms",
+        explanation:
+          "A sound social plan sets objectives, plans content, and measures results; registering everywhere is not required."
+      },
+      {
+        question: "Instagram can be a top social platform for generating first-time customers because:",
+        options: [
+          "Posts from corporate entities are not handicapped heavily on Instagram",
+          "Companies can use Instagram influencers to reach potential customers",
+          "Both posts from corporate entities are not handicapped heavily on Instagram AND companies can use Instagram influencers to reach potential customers",
+          "None of these are correct"
+        ],
+        answer:
+          "Both posts from corporate entities are not handicapped heavily on Instagram AND companies can use Instagram influencers to reach potential customers",
+        explanation:
+          "Instagram still offers organic brand reach and robust influencer partnerships, making it strong for acquiring new customers."
+      },
+      {
+        question: "Curated social media content refers to content that:",
+        options: [
+          "Is created by a company for its own social media profiles",
+          "Is created by two or more companies in a partnership",
+          "Is collected from a variety of other content creators",
+          "Was first posted more than one year earlier and is being posted a second time"
+        ],
+        answer: "Is collected from a variety of other content creators",
+        explanation:
+          "Curated content is sourced from other creators and shared with your audience, rather than produced by the brand itself."
+      },
+      {
+        question: "Creating a post with a discount for a product is an example of providing:",
+        options: [
+          "Utilitarian value",
+          "Entertainment value",
+          "Social value",
+          "Identity value"
+        ],
+        answer: "Utilitarian value",
+        explanation:
+          "A discount delivers practical, functional benefit to the audience, which is utilitarian value."
+      },
+      {
+        question: "Why is the engagement of social media followers more important than the number of followers?",
+        options: [
+          "Seeing a company's posts cannot positively affect customers unless they also click the Like button",
+          "Most social media platforms do not show company content to followers who are not highly engaged",
+          "Having a large number of unengaged followers decreases SEO rankings",
+          "Having a large number of unengaged followers suppresses earned media"
+        ],
+        answer: "Most social media platforms do not show company content to followers who are not highly engaged",
+        explanation:
+          "Platforms prioritize showing content to users who interact; engagement drives reach far more than raw follower counts."
+      },
+      {
+        question:
+          "If a company's social media followers exhibit greater purchase frequency than non-followers, this could be a sign that the company's social media efforts are producing good results. Alternately, it may only reflect the fact that:",
+        options: [
+          "More loyal customers are more likely to follow the company on social media",
+          "The company's analytics are not properly installed",
+          "The social media platform is exaggerating its own performance",
+          "The indirect effect of social media is more dramatic than the direct effect"
+        ],
+        answer: "More loyal customers are more likely to follow the company on social media",
+        explanation:
+          "Existing loyal customers are more inclined to follow the brand, so higher purchase frequency among followers can be correlation, not causation."
+      },
+      {
+        question:
+          "In addition to posts from friends and paid-for advertisements, what other two types of content are found in a Facebook News Feed (though with much lower frequency)?",
+        options: [
+          "Posts from Liked pages and actions from friends",
+          "News articles and event notices",
+          "Live video and pre-recorded video",
+          "Mobile application download suggestions and financial advice"
+        ],
+        answer: "Posts from Liked pages and actions from friends",
+        explanation:
+          "Facebook occasionally shows posts from pages a user has liked and activities their friends have taken, alongside friend posts and paid ads."
+      },
+      {
+        question: "In the original EdgeRank formula, affinity score referred to:",
+        options: [
+          "Users' tendency to watch videos or like image posts",
+          "Users' frequency of logging in to Facebook",
+          "Users' liking of public versus private posts",
+          "Users' liking of the friend or page making the post"
+        ],
+        answer: "Users' liking of the friend or page making the post",
+        explanation:
+          "EdgeRank affinity measured how connected a user was to the friend or page posting the content."
+      },
+      {
+        question: "On Facebook, custom audiences allows advertisers to:",
+        options: [
+          "Create target audiences from the typical targeting methods and then save these audiences as a custom audience",
+          "Use demographics in combination with interests to customize their audience targeting",
+          "Customize the ad content to match each user's interests",
+          "Upload email addresses of current customers and target users with similar characteristics"
+        ],
+        answer: "Upload email addresses of current customers and target users with similar characteristics",
+        explanation:
+          "Custom Audiences are built by uploading customer data (emails, phone numbers, site visitors) so you can target them or lookalike audiences."
+      },
+      {
+        question: "The purpose of hashtags is to:",
+        options: [
+          "Make posts (tweets) searchable",
+          "Add humorous commentary to a post",
+          "Exceed the 280-character limit",
+          "Replace the need for images"
+        ],
+        answer: "Make posts (tweets) searchable",
+        explanation:
+          "Hashtags categorize content so posts are discoverable by topic across social platforms."
+      },
+      {
+        question:
+          "On Twitter, Partner Audiences allow advertisers to target potential customers based on behaviors that occur outside Twitter. How does Twitter get this information?",
+        options: [
+          "The Twitter app hacks this information from other apps on the user's phone",
+          "Twitter has partnered with third-party data providers to access this information",
+          "Twitter users voluntarily provide this information when they register with Twitter",
+          "Twitter partners with governments to access this information from census data"
+        ],
+        answer: "Twitter has partnered with third-party data providers to access this information",
+        explanation:
+          "Partner Audiences rely on third-party data about off-Twitter behavior that Twitter licenses for ad targeting."
+      },
+      {
+        question:
+          "Twitter consumption is fast-paced because of the short nature of tweets. Pinterest consumption is even faster-paced because:",
+        options: [
+          "The Pinterest feed automatically scrolls",
+          "Pins disappear after only five seconds on the screen",
+          "The Pinterest feed shows multiple columns of images",
+          "Columns are organized by topic"
+        ],
+        answer: "The Pinterest feed shows multiple columns of images",
+        explanation:
+          "Pinterest’s multi-column layout lets users scan many visuals at once, speeding consumption compared to single-column feeds like Twitter."
+      },
+      {
+        question: "Which of the following is NOT a payment method for advertising on Pinterest?",
+        options: [
+          "Cost per engagement (CPE)",
+          "Cost per click (CPC)",
+          "Cost per video view (CPV)",
+          "Cost per mille (CPM)"
+        ],
+        answer: "Cost per engagement (CPE)",
+        explanation:
+          "Pinterest supports CPC, CPM, and CPV bidding; CPE is not a standard pricing option on the platform."
+      },
+      {
+        question: "Which type of YouTube ad lasts exactly six seconds?",
+        options: [
+          "Overlay ads",
+          "Skippable video ads",
+          "Long, non-skippable video ads",
+          "Bumper ads"
+        ],
+        answer: "Bumper ads",
+        explanation:
+          "Bumper ads are non-skippable six-second spots used for quick, high-impact brand messages on YouTube."
+      },
+      {
+        question: "Which platform has an advertisement type that is most similar to email marketing?",
+        options: ["Twitter", "Pinterest", "LinkedIn", "Snapchat"],
+        answer: "LinkedIn",
+        explanation:
+          "LinkedIn Message Ads (formerly Sponsored InMail) deliver direct messages to user inboxes, closely mirroring email marketing."
+      },
+      {
+        question: "What led to a thriving ecosystem of influencers on Instagram?",
+        options: [
+          "Instagram actively recruited influencers early on",
+          "Paid advertisements came relatively late to Instagram",
+          "Instagram was programmed to allow influencers to avoid FTC compliance",
+          "Influencers contribute a fixed percentage of their earnings to Instagram"
+        ],
+        answer: "Paid advertisements came relatively late to Instagram",
+        explanation:
+          "With ads arriving later, brands leaned on influencers for organic reach, fueling Instagram's influencer ecosystem."
+      },
+      {
+        question: "Which of the following is NOT an example of reputation management?",
+        options: [
+          "A company hires a public relations firm to attract news stories about the company so that its homepage ranks better on search results",
+          "A company hires a public relations firm to attract news stories about the company so that searches on the company's name will bring up links to the positive news stories instead of negative links",
+          "A company uses Google Alerts to monitor web mentions of its company and its top executives",
+          "A company uses its customer service team to respond to negative comments about the company online"
+        ],
+        answer:
+          "A company hires a public relations firm to attract news stories about the company so that its homepage ranks better on search results",
+        explanation:
+          "This action is focused on SEO rankings, not on monitoring or addressing reputation-related issues."
+      },
+      {
+        question:
+          "A company like Apple generates so much online commentary that it would be too labor-intensive to monitor it all. But Apple still wants to be on the lookout for negative press. It should therefore:",
+        options: [
+          "Look at 10 randomly selected results from Google Alerts per day",
+          "Examine Google Alerts once per month",
+          "Actively monitor crucial alerts like \"Apple + fraud\" and \"Apple + scam\"",
+          "Monitor blogs only and ignore news sites, discussion forums, etc."
+        ],
+        answer: "Actively monitor crucial alerts like \"Apple + fraud\" and \"Apple + scam\"",
+        explanation:
+          "Focusing on high-risk keyword alerts surfaces serious issues without requiring monitoring every mention."
+      },
+      {
+        question: "In general, the proper response to a negative review on an online review site is to:",
+        options: [
+          "Ignore it",
+          "Explain how the company is not at fault",
+          "Send discounts or coupons in recompense for the failure",
+          "Understand the situation and take responsibility where appropriate"
+        ],
+        answer: "Understand the situation and take responsibility where appropriate",
+        explanation:
+          "Best practice is to acknowledge the issue empathetically and take responsibility when warranted to protect and rebuild reputation."
+      },
+      {
+        question: "How many responses are optimal for negative reports on scam reporting websites?",
+        options: ["0", "1", "2", "3 or more"],
+        answer: "3 or more",
+        explanation:
+          "Providing multiple professional responses shows transparency and active engagement, which bolsters credibility on scam-reporting sites."
+      },
+      {
+        question: "Who is liable when false information is posted online?",
+        options: [
+          "Google and any other search engine that links to the false information",
+          "The company that maintains the website on which the false information is posted",
+          "Practically nobody",
+          "The web hosting company that maintains the website's servers"
+        ],
+        answer: "The company that maintains the website on which the false information is posted",
+        explanation:
+          "Liability typically falls on the publisher or owner of the site hosting the false information, not search engines or hosting providers."
+      },
+      {
+        question: "Which is NOT one of the three T's of negative publicity?",
+        options: ["Take down", "Timeliness", "Transparency", "Training"],
+        answer: "Training",
+        explanation:
+          "The three T's are usually Timeliness, Transparency, and Taking responsibility (or Truth); Training is not part of this framework."
+      },
+      {
+        question:
+          "A nonprofit organization has generated a following of people who have created websites about the organization. Most of these sites are positive, and only a few are negative. The organization begins buying some of the positive sites and redirecting those URLs to their home URL. What is the downside of this strategy?",
+        options: [
+          "Redirecting the URLs to the nonprofit organization's URL will weaken the organization's URL and prevent it from ranking well on search engines",
+          "By redirecting the URLs, those URLs will no longer rank independently on search engines, moving other (potentially negative) sites up higher in the rankings",
+          "Redirecting websites is never a good idea, because it creates extra copies of content that damage search engine rankings",
+          "Search engines view redirects with suspicion, and having multiple redirects could generate a manual penalty from Google"
+        ],
+        answer:
+          "By redirecting the URLs, those URLs will no longer rank independently on search engines, moving other (potentially negative) sites up higher in the rankings",
+        explanation:
+          "When positive third-party sites are redirected, they drop from the SERPs, which can leave room for negative sites to rise."
+      },
+      {
+        question:
+          "All of the following activities are more difficult on a mobile device than on a desktop computer EXCEPT:",
+        options: [
+          "Scrolling",
+          "Viewing information",
+          "Typing",
+          "Clicking"
+        ],
+        answer: "Scrolling",
+        explanation:
+          "Scrolling is generally easier on mobile due to touch swiping; typing, clicking, and detailed viewing are typically harder on smaller screens."
+      },
+      {
+        question: "The accelerated mobile pages project is trying to address what shortcoming of mobile devices?",
+        options: ["Difficult clicking", "Poor mobile web design", "Slow loading of web pages", "Immobility of desktop computers"],
+        answer: "Slow loading of web pages",
+        explanation:
+          "AMP focuses on streamlining pages for fast loads on mobile, tackling the common problem of slow page speed."
+      },
+      {
+        question: "On which of the following dimensions are mobile users equal to desktop users?",
+        options: [
+          "Patience",
+          "Length of internet usage sessions",
+          "Effectiveness of video",
+          "Importance of location"
+        ],
+        answer: "Effectiveness of video",
+        explanation:
+          "Mobile and desktop users respond similarly well to video; patience, session length, and location importance differ."
+      },
+      {
+        question: 'Mobile users engage in more "snacking" than desktop users. This means that:',
+        options: [
+          "Mobile users make smaller, more frequent purchases",
+          "Mobile users have shorter, more frequent usage sessions",
+          "Mobile users find restaurants more frequently from their phones",
+          "Mobile users spill crumbs on the phones more readily than on their desktop keyboards"
+        ],
+        answer: "Mobile users have shorter, more frequent usage sessions",
+        explanation:
+          "Snacking describes quick, repeated interactions on mobile—shorter but more frequent sessions throughout the day."
+      },
+      {
+        question:
+          "If I pay to advertise on Google's ad network and I notice a low conversion rate from mobile users despite having a mobile-optimized website, it is likely that:",
+        options: [
+          "Mobile traffic is poorly qualified (e.g., consisting of many fat-finger clicks)",
+          "Mobile users prefer to convert a different way (e.g., purchasing in-store or on a different device)",
+          "Both mobile traffic is poorly qualified (e.g., consisting of many fat-finger clicks) AND mobile users prefer to convert a different way (e.g., purchasing in-store or on a different device)",
+          "None of these are correct"
+        ],
+        answer:
+          "Both mobile traffic is poorly qualified (e.g., consisting of many fat-finger clicks) AND mobile users prefer to convert a different way (e.g., purchasing in-store or on a different device)",
+        explanation:
+          "Mobile campaigns can suffer from accidental clicks and deferred/offline conversions, depressing measured mobile conversion rates."
+      },
+      {
+        question:
+          "I do a search for \"restaurants near me\" and I see an ad for a local Thai restaurant only if I am within 400 meters of the restaurant's location. This location-based ad strategy is called:",
+        options: [
+          "Temporal training",
+          "Locavore targeting",
+          "Hyper-targeting",
+          "Geo-fencing"
+        ],
+        answer: "Geo-fencing",
+        explanation:
+          "Geo-fencing targets users within a defined physical boundary (e.g., 400 meters), using location data to limit who sees the ad."
+      },
+      {
+        question:
+          "Targeting consumers based on their location is not as effective as targeting them based on their location and:",
+        options: ["Their past behavior", "Timing", "Both past behavior and timing", "None of these are correct"],
+        answer: "Both past behavior and timing",
+        explanation:
+          "Combining location with behavioral and temporal signals makes targeting far more relevant and effective."
+      },
+      {
+        question: "Which of the following developments will make consumers more tolerant of notification-based advertising?",
+        options: [
+          "Notifications will be controlled biometrically",
+          "Ad targeting will improve so that only informative and welcome notifications will be sent",
+          "Consumers will have their bank accounts connected to notifications so that they will be charged by the notification automatically",
+          "Consumers will be unable to turn off notifications from any apps"
+        ],
+        answer: "Ad targeting will improve so that only informative and welcome notifications will be sent",
+        explanation:
+          "Better targeting that surfaces relevant, useful notifications makes users more tolerant of notification-based ads."
+      },
+      {
+        question:
+          "A commuter's evening routine is very rigid except for Friday evenings, when she often makes extra stops for shopping on the way home. Advertisers would most likely find success if they targeted her with advertisements:",
+        options: [
+          "During her morning commute",
+          "At the end of her evening commute",
+          "During the weekend",
+          "At the beginning of her evening commute"
+        ],
+        answer: "At the beginning of her evening commute",
+        explanation:
+          "Reaching her at the start of the Friday commute influences shopping decisions before she chooses where to stop."
+      },
+      {
+        question: "Which of the following is a valid use of browser Bluetooth for a large retailer like Target or Walmart?",
+        options: [
+          "Providing location-based information to shoppers",
+          "Improving Wi-Fi signals in-store",
+          "Making audio broadcast announcements in the store",
+          "Automating checkout procedures"
+        ],
+        answer: "Providing location-based information to shoppers",
+        explanation:
+          "Browser Bluetooth via beacons is typically used to detect in-store location and push relevant info or offers to shoppers."
+      },
+      {
+        question: "Which of the following reflects product-centric (as opposed to brand-centric) demand?",
+        options: [
+          "\"really need a way to stay warmer when I ski\"",
+          "\"I need new ski gloves\"",
+          "\"I really want The North Face's new ski gloves\"",
+          "\"I only shop at L. L. Bean for winter clothes\""
+        ],
+        answer: "\"I need new ski gloves\"",
+        explanation: "Product-centric demand focuses on the product need without referencing a specific brand."
+      },
+      {
+        question: "A new company with no existing customers should likely focus on:",
+        options: ["Demand generation", "Demand harvesting", "Loyalty building", "Its return policy"],
+        answer: "Demand generation",
+        explanation: "A new company must first create awareness and interest before it can harvest demand or build loyalty."
+      },
+      {
+        question:
+          "A company has focused all its efforts on demand harvesting for a long while. It should now shift its efforts to include:",
+        options: ["Demand generation", "More demand harvesting", "Loyalty building", "Paid search"],
+        answer: "Demand generation",
+        explanation:
+          "Harvesting captures existing demand; sustainable growth also needs creating new interest through demand generation."
+      },
+      {
+        question:
+          "All else being equal, a marketing channel that has a high cost per exposure will have a return on investment:",
+        options: ["High", "Low"],
+        answer: "Low",
+        explanation:
+          "Higher cost per exposure means paying more to reach the same audience, which lowers ROI when performance is otherwise equal."
+      },
+      {
+        question: "A random sample of consumers will likely have a low customer concentration for Porsche because:",
+        options: [
+          "Porsche is not a respected brand",
+          "Porsche only appeals to young males",
+          "Porsche actively tries to prevent most people from buying its cars",
+          "Most people cannot afford such an expensive car"
+        ],
+        answer: "Most people cannot afford such an expensive car",
+        explanation:
+          "Porsche serves a small, affluent segment, so few people in a random sample can realistically afford the brand."
+      },
+      {
+        question:
+          "A consumer sees an ad and purchases the product featured in the ad, but he would have purchased the product anyway even if he hadn't seen the ad. The ad is:",
+        options: [
+          "Effective because the consumer purchased the product",
+          "Effective because the ad caused the consumer to purchase",
+          "Not effective because the ad did not influence his behavior",
+          "Not effective because the ad was poorly targeted"
+        ],
+        answer: "Not effective because the ad did not influence his behavior",
+        explanation:
+          "If the purchase would have happened anyway, the ad didn’t change behavior, so it wasn’t truly effective."
+      },
+      {
+        question: "An ad that commands a consumer's direct attention is likely to be:",
+        options: [
+          "More effective than an ad that does not command direct attention",
+          "Ineffective in almost all circumstances",
+          "Effective for all audiences",
+          "Less effective than an ad that is only seen in a consumer's peripheral vision"
+        ],
+        answer: "More effective than an ad that does not command direct attention",
+        explanation:
+          "Direct attention increases the chance an ad influences memory, attitudes, and behavior versus peripheral-only exposure."
+      },
+      {
+        question: "An advantage of paid search marketing is that:",
+        options: [
+          "It is the least expensive channel on a cost-per-exposure basis",
+          "The high start-up costs make it difficult for competitors to bid on profitable keywords",
+          "There is very little competition for the highest-value keywords",
+          "Returns are typically seen immediately"
+        ],
+        answer: "Returns are typically seen immediately",
+        explanation:
+          "Paid search can start delivering traffic and conversions as soon as campaigns go live, unlike slower organic tactics."
+      },
+      {
+        question: "Display advertising has a low exposure effectiveness, but it may still be cost-effective because:",
+        options: [
+          "The cost per exposure is low",
+          "It requires only a flat fee",
+          "Display ads cost the same regardless of exposure frequency",
+          "Customer concentration is 100%"
+        ],
+        answer: "The cost per exposure is low",
+        explanation:
+          "Despite low per-exposure impact, very low CPMs can make large-scale display campaigns cost-effective."
+      },
+      {
+        question:
+          "A mobile application that gets installed and used regularly by a large number of customers may still not be profitable if:",
+        options: [
+          "It produces conversions from a new group of customers",
+          "The conversions on the application are higher-value than on the website",
+          "The convenience of using the app increases visit frequency",
+          "Using the app does not increase users' spending"
+        ],
+        answer: "Using the app does not increase users' spending",
+        explanation:
+          "Even with high adoption, an app must drive incremental spending or higher-value conversions to be profitable."
       }
     ];
