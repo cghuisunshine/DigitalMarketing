@@ -68,6 +68,7 @@
       height: 360px;
       perspective: 1200px;
       cursor: pointer;
+      touch-action: pan-y;
     }
 
     .card-inner {
@@ -167,12 +168,17 @@
 
   let order = [...cards];
   let index = 0;
+  let didSwipe = false;
 
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
+  const toggleFlip = () => {
+    cardEl.classList.toggle("flipped");
+  };
+
   function renderCard() {
     const current = order[index];
-    cardInner.classList.remove("flipped");
+    cardEl.classList.remove("flipped");
 
     front.innerHTML = `
       <div class="meta">${current.topic || "Topic"}</div>
@@ -199,7 +205,11 @@
   }
 
   cardEl.addEventListener("click", () => {
-    cardInner.classList.toggle("flipped");
+    if (didSwipe) {
+      didSwipe = false;
+      return;
+    }
+    toggleFlip();
   });
 
   let touchStartX = 0;
@@ -209,7 +219,11 @@
   cardEl.addEventListener("touchend", (e) => {
     const deltaX = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(deltaX) > 40) {
+      didSwipe = true;
       deltaX < 0 ? next() : prev();
+    } else {
+      toggleFlip();
+      didSwipe = true;
     }
   });
 
