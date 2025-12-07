@@ -10,51 +10,74 @@
       background: #020617;
       color: #e5e7eb;
       min-height: 100vh;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 3rem;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 1.25rem;
     }
 
     h1 {
-      margin-bottom: 1rem;
+      margin: 0;
     }
 
     .controls {
       display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 680px;
     }
 
     button {
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
       border: none;
       background: #38bdf8;
       color: #020617;
-      font-weight: bold;
+      font-weight: 700;
       cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
     }
 
-    .grid {
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+    }
+
+    .deck {
       width: 100%;
-      max-width: 1100px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
+      max-width: 780px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .progress {
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      color: #cbd5e1;
     }
 
     .card {
-      perspective: 1000px;
+      width: 100%;
+      max-width: 780px;
+      height: 360px;
+      perspective: 1200px;
       cursor: pointer;
     }
 
     .card-inner {
       width: 100%;
-      height: 280px;
+      height: 100%;
       position: relative;
       transform-style: preserve-3d;
-      transition: 0.4s;
+      transition: transform 0.4s ease;
+      border-radius: 18px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
     }
 
     .card.flipped .card-inner {
@@ -64,28 +87,48 @@
     .face {
       position: absolute;
       inset: 0;
-      background: #111827;
-      border-radius: 16px;
-      padding: 1rem;
+      background: linear-gradient(135deg, #0f172a, #111827);
+      border-radius: 18px;
+      padding: 1.25rem;
       backface-visibility: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 0.6rem;
     }
 
     .back {
       transform: rotateY(180deg);
-      background: #075985;
+      background: linear-gradient(135deg, #0b3b5c, #0a4b78);
+      color: #e5f2ff;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #93c5fd;
+      letter-spacing: 0.02em;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      margin: 0;
+      line-height: 1.4;
     }
 
     ul {
-      padding-left: 1rem;
-      font-size: 0.9rem;
+      padding-left: 1.1rem;
+      margin: 0;
+      display: grid;
+      gap: 0.25rem;
+      font-size: 0.95rem;
     }
 
     .answer {
-      font-weight: bold;
-      margin-bottom: 0.25rem;
+      font-weight: 700;
+    }
+
+    .nav-hint {
+      font-size: 0.85rem;
+      color: #94a3b8;
     }
   </style>
 </head>
@@ -94,61 +137,97 @@
 <h1>Flashcards</h1>
 
 <div class="controls">
+  <button id="prevBtn">← Prev</button>
   <button id="shuffleBtn">Shuffle</button>
   <button id="resetBtn">Reset</button>
+  <button id="nextBtn">Next →</button>
 </div>
 
-<div class="grid" id="grid"></div>
+<div class="deck">
+  <div class="progress" id="progress"></div>
+  <div class="card" id="card">
+    <div class="card-inner" id="cardInner">
+      <div class="face front" id="front"></div>
+      <div class="face back" id="back"></div>
+    </div>
+  </div>
+  <div class="nav-hint">Tap to flip · Swipe left/right or use buttons to navigate</div>
+</div>
 
 <!-- ✅ LOAD DATA FILE -->
 <script src="cards.js"></script>
 
 <!-- ✅ MAIN APP LOGIC -->
 <script>
-  const grid = document.getElementById("grid");
+  const progressEl = document.getElementById("progress");
+  const cardEl = document.getElementById("card");
+  const cardInner = document.getElementById("cardInner");
+  const front = document.getElementById("front");
+  const back = document.getElementById("back");
 
-  function renderCards(data) {
-    grid.innerHTML = "";
-    data.forEach(card => {
-      const el = document.createElement("div");
-      el.className = "card";
+  let order = [...cards];
+  let index = 0;
 
-      el.innerHTML = `
-        <div class="card-inner">
-          <div class="face front">
-            <strong>${card.topic}</strong>
-            <p>${card.question}</p>
-            <ul>
-              ${card.options.map(o => `<li>${o}</li>`).join("")}
-            </ul>
-          </div>
+  const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
-          <div class="face back">
-            <div class="answer">Answer: ${card.answer}</div>
-            <div>${card.explanation}</div>
-          </div>
-        </div>
-      `;
+  function renderCard() {
+    const current = order[index];
+    cardInner.classList.remove("flipped");
 
-      el.addEventListener("click", () => {
-        el.classList.toggle("flipped");
-      });
+    front.innerHTML = `
+      <div class="meta">${current.topic || "Topic"}</div>
+      <h2>${current.question}</h2>
+      <ul>${current.options.map(o => `<li>${o}</li>`).join("")}</ul>
+    `;
 
-      grid.appendChild(el);
-    });
+    back.innerHTML = `
+      <div class="answer">Answer: ${current.answer}</div>
+      <div>${current.explanation || ""}</div>
+    `;
+
+    progressEl.textContent = `Card ${index + 1} / ${order.length}`;
   }
 
-  function shuffle(arr) {
-    return [...arr].sort(() => Math.random() - 0.5);
+  function next() {
+    index = (index + 1) % order.length;
+    renderCard();
   }
 
-  document.getElementById("shuffleBtn").onclick = () => renderCards(shuffle(cards));
-  document.getElementById("resetBtn").onclick = () => renderCards(cards);
+  function prev() {
+    index = (index - 1 + order.length) % order.length;
+    renderCard();
+  }
 
-  // ✅ Initial render
-  renderCards(cards);
+  cardEl.addEventListener("click", () => {
+    cardInner.classList.toggle("flipped");
+  });
+
+  let touchStartX = 0;
+  cardEl.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+  cardEl.addEventListener("touchend", (e) => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(deltaX) > 40) {
+      deltaX < 0 ? next() : prev();
+    }
+  });
+
+  document.getElementById("nextBtn").onclick = next;
+  document.getElementById("prevBtn").onclick = prev;
+  document.getElementById("shuffleBtn").onclick = () => {
+    order = shuffle(cards);
+    index = 0;
+    renderCard();
+  };
+  document.getElementById("resetBtn").onclick = () => {
+    order = [...cards];
+    index = 0;
+    renderCard();
+  };
+
+  renderCard();
 </script>
 
 </body>
 </html>
-
