@@ -108,7 +108,23 @@
       background: #0f172a;
       touch-action: pan-y;
     }
-    /* Remove swipe zones - the entire viewport will handle swipes */
+    .swipe-zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: max(13%, 56px);
+      max-width: 120px;
+      pointer-events: auto;
+      touch-action: pan-y;
+      opacity: 0;
+      transition: opacity 0.12s ease;
+    }
+    .swipe-zone.left { left: 0; background: linear-gradient(90deg, rgba(15,23,42,0.35), transparent); }
+    .swipe-zone.right { right: 0; background: linear-gradient(270deg, rgba(15,23,42,0.35), transparent); }
+    .swipe-zone:hover { opacity: 0.35; }
+    @media (pointer: fine) {
+      .swipe-zone { display: none; }
+    }
     .carousel-dots {
       display: flex;
       gap: 0.5rem;
@@ -162,9 +178,11 @@
     </div>
     <div class="carousel-viewport" id="carouselViewport">
       <div class="carousel-track" id="carouselTrack"></div>
+      <div class="swipe-zone left" aria-hidden="true"></div>
+      <div class="swipe-zone right" aria-hidden="true"></div>
     </div>
     <div class="carousel-dots" id="carouselDots" aria-label="Chapter navigation"></div>
-    <p class="hint">Swipe anywhere, use arrow keys, or tap the controls above.</p>
+    <p class="hint">Swipe near the left/right edges, use arrow keys, or tap the controls above.</p>
   </section>
 
   <section class="chapter-list">
@@ -211,6 +229,8 @@
     const prevBtn = document.getElementById('prevChapter');
     const nextBtn = document.getElementById('nextChapter');
     const viewport = document.getElementById('carouselViewport');
+    const swipeZones = document.querySelectorAll('.swipe-zone');
+
     let currentIndex = 0;
     let startX = 0;
     let deltaX = 0;
@@ -351,18 +371,20 @@
     nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
     window.addEventListener('keydown', handleKeyNavigation);
 
-    // Attach event listeners to the viewport
-    viewport.addEventListener('pointerdown', pointerStart);
-    viewport.addEventListener('pointermove', pointerMove);
-    viewport.addEventListener('pointerup', pointerEnd);
-    viewport.addEventListener('pointercancel', pointerEnd);
-    viewport.addEventListener('pointerleave', () => dragging && pointerEnd());
+    const swipeTargets = [viewport, ...swipeZones];
+    swipeTargets.forEach((target) => {
+      target.addEventListener('pointerdown', pointerStart);
+      target.addEventListener('pointermove', pointerMove);
+      target.addEventListener('pointerup', pointerEnd);
+      target.addEventListener('pointercancel', pointerEnd);
+      target.addEventListener('pointerleave', () => dragging && pointerEnd());
 
-    // For touch events, we need to use { passive: false } to be able to call preventDefault()
-    viewport.addEventListener('touchstart', touchStart, { passive: false });
-    viewport.addEventListener('touchmove', touchMove, { passive: false });
-    viewport.addEventListener('touchend', touchEnd, { passive: true });
-    viewport.addEventListener('touchcancel', touchEnd, { passive: true });
+      // For touch events, we need to use { passive: false } to be able to call preventDefault()
+      target.addEventListener('touchstart', touchStart, { passive: false });
+      target.addEventListener('touchmove', touchMove, { passive: false });
+      target.addEventListener('touchend', touchEnd, { passive: true });
+      target.addEventListener('touchcancel', touchEnd, { passive: true });
+    });
     
     // Also attach touch events to the iframes themselves
     document.querySelectorAll('.slide iframe').forEach(iframe => {
