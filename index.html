@@ -106,6 +106,7 @@
       border: 1px solid #1f2937;
       border-radius: 0.75rem;
       background: #0f172a;
+      touch-action: pan-y;
     }
     .swipe-zone {
       position: absolute;
@@ -259,6 +260,16 @@
         dots.appendChild(dot);
       });
       updateUI();
+      
+      // Attach touch events to iframes after they're created
+      setTimeout(() => {
+        document.querySelectorAll('.slide iframe').forEach(iframe => {
+          iframe.addEventListener('touchstart', touchStart, { passive: false });
+          iframe.addEventListener('touchmove', touchMove, { passive: false });
+          iframe.addEventListener('touchend', touchEnd, { passive: true });
+          iframe.addEventListener('touchcancel', touchEnd, { passive: true });
+        });
+      }, 100);
     }
 
     function goTo(index) {
@@ -320,6 +331,8 @@
 
     // Touch fallback for iOS Safari (some builds ignore pointer events inside iframes)
     function touchStart(event) {
+      // Prevent default to avoid scrolling the page
+      event.preventDefault();
       const touch = event.touches[0];
       if (!touch) return;
       dragging = true;
@@ -330,6 +343,8 @@
 
     function touchMove(event) {
       if (!dragging) return;
+      // Only prevent default when we're actually dragging to allow vertical scrolling
+      event.preventDefault();
       const touch = event.touches[0];
       if (!touch) return;
       deltaX = touch.clientX - startX;
@@ -364,10 +379,19 @@
       target.addEventListener('pointercancel', pointerEnd);
       target.addEventListener('pointerleave', () => dragging && pointerEnd());
 
-      target.addEventListener('touchstart', touchStart, { passive: true });
-      target.addEventListener('touchmove', touchMove, { passive: true });
+      // For touch events, we need to use { passive: false } to be able to call preventDefault()
+      target.addEventListener('touchstart', touchStart, { passive: false });
+      target.addEventListener('touchmove', touchMove, { passive: false });
       target.addEventListener('touchend', touchEnd, { passive: true });
       target.addEventListener('touchcancel', touchEnd, { passive: true });
+    });
+    
+    // Also attach touch events to the iframes themselves
+    document.querySelectorAll('.slide iframe').forEach(iframe => {
+      iframe.addEventListener('touchstart', touchStart, { passive: false });
+      iframe.addEventListener('touchmove', touchMove, { passive: false });
+      iframe.addEventListener('touchend', touchEnd, { passive: true });
+      iframe.addEventListener('touchcancel', touchEnd, { passive: true });
     });
   </script>
 </body>
