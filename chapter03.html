@@ -10,6 +10,12 @@
     ul{margin-left:1.4rem;}
     strong{color:#fbbf24;}
 
+  
+    .chapter-nav { display:flex; gap:0.75rem; flex-wrap:wrap; margin:1.75rem 0 0.5rem; padding-top:0.75rem; border-top:1px solid #1f2937; }
+    .nav-link { background:#0f172a; border:1px solid #1f2937; color:#e5e7eb; padding:0.45rem 0.9rem; border-radius:0.6rem; text-decoration:none; display:inline-block; transition:background 0.15s ease, transform 0.08s ease; }
+    .nav-link:hover { background:rgba(249,115,22,0.18); transform:translateY(-1px); }
+    .nav-link.disabled { opacity:0.5; cursor:default; pointer-events:none; }
+
   </style>
 </head>
 <body>
@@ -118,6 +124,12 @@
     <li>Because attribution models are biased, the most reliable way to measure true impact is through <strong>experiments</strong> (A/B or regional tests).</li>
     <li>Example: randomly turn ads on/off in different regions and measure the difference in sales.</li>
   </ul>
+
+  <div class="chapter-nav" aria-label="Chapter navigation">
+    <a class="nav-link" href="chapter02.html">&larr; Prev (Ch. 2)</a>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="chapter04.html">Next (Ch. 4) &rarr;</a>
+  </div>
 
 </body>
 </html>

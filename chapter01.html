@@ -14,6 +14,12 @@
     strong { color:#fbbf24; }
     .pill { display:inline-block; padding:0.1rem 0.5rem; border-radius:999px; border:1px solid #374151; font-size:0.8rem; margin-right:0.25rem; }
 
+  
+    .chapter-nav { display:flex; gap:0.75rem; flex-wrap:wrap; margin:1.75rem 0 0.5rem; padding-top:0.75rem; border-top:1px solid #1f2937; }
+    .nav-link { background:#0f172a; border:1px solid #1f2937; color:#e5e7eb; padding:0.45rem 0.9rem; border-radius:0.6rem; text-decoration:none; display:inline-block; transition:background 0.15s ease, transform 0.08s ease; }
+    .nav-link:hover { background:rgba(249,115,22,0.18); transform:translateY(-1px); }
+    .nav-link.disabled { opacity:0.5; cursor:default; pointer-events:none; }
+
   </style>
 </head>
 <body>
@@ -123,6 +129,12 @@
     </li>
     <li>Under everything: understand how URLs, servers, cookies, and HTTP/HTTPS work.</li>
   </ul>
+
+  <div class="chapter-nav" aria-label="Chapter navigation">
+    <span class="nav-link disabled">&larr; Prev</span>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="chapter02.html">Next (Ch. 2) &rarr;</a>
+  </div>
 
 </body>
 </html>
