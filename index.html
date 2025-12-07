@@ -5,22 +5,32 @@
   <title>Digital Marketing Tutorials – Chapters 1–13</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    :root {
+      color-scheme: dark;
+    }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
-      margin: 1.5rem auto;
-      max-width: 900px;
+      margin: 1.5rem auto 2.5rem;
+      max-width: 1100px;
       padding: 0 1rem;
-      background: #020617;
+      background: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.08), transparent 22%),
+                  radial-gradient(circle at 80% 10%, rgba(249,115,22,0.16), transparent 18%),
+                  #020617;
       color: #e5e7eb;
     }
     h1 {
       color: #f97316;
-      font-size: 1.9rem;
-      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      margin: 0 0 0.4rem;
     }
-    p { color:#e5e7eb; }
-    ul { list-style: none; padding-left: 0; margin-top: 1rem; }
+    h2 {
+      margin: 1.5rem 0 0.35rem;
+      color: #f97316;
+      font-size: 1.1rem;
+    }
+    p { color:#e5e7eb; margin: 0.35rem 0; }
+    ul { list-style: none; padding-left: 0; margin-top: 0.6rem; }
     li { margin-bottom: 0.4rem; }
     a {
       color: #e5e7eb;
@@ -34,39 +44,271 @@
       background: rgba(249,115,22,0.2);
       transform: translateX(2px);
     }
-    .code {
-      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.86rem;
-      background: #020617;
-      border-radius: 0.25rem;
-      padding: 0.15rem 0.3rem;
-    }
     .chapter-num {
       color:#fbbf24;
       font-weight:600;
       margin-right:0.4rem;
     }
+    .page-header { margin-bottom: 1.2rem; }
+    .lede { max-width: 720px; color:#cbd5e1; }
+    .carousel {
+      border: 1px solid #1f2937;
+      border-radius: 1rem;
+      padding: 1rem;
+      background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.9));
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+    .carousel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .eyebrow { text-transform: uppercase; letter-spacing: 0.08em; color:#93c5fd; font-size: 0.8rem; margin: 0 0 0.2rem; }
+    .chapter-meta { font-size: 0.95rem; color:#cbd5e1; margin: 0; }
+    .chapter-title { font-size: 1.35rem; color:#fbbf24; margin: 0.1rem 0 0; font-weight: 650; }
+    .controls { display: flex; gap: 0.5rem; align-items: center; }
+    .nav-btn {
+      border: 1px solid #1f2937;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 0.4rem 0.75rem;
+      border-radius: 0.7rem;
+      cursor: pointer;
+      transition: transform 0.08s ease, background 0.12s ease, border-color 0.12s ease;
+      font-weight: 600;
+    }
+    .nav-btn:hover { background: rgba(249,115,22,0.15); border-color:#f97316; transform: translateY(-1px); }
+    .carousel-viewport {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.85rem;
+      border: 1px solid #1f2937;
+      background: #0b1224;
+      touch-action: pan-y;
+    }
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.35s ease;
+    }
+    .slide {
+      flex: 0 0 100%;
+      padding: 0.4rem;
+      box-sizing: border-box;
+    }
+    .slide iframe {
+      width: 100%;
+      height: 70vh;
+      min-height: 440px;
+      border: 1px solid #1f2937;
+      border-radius: 0.75rem;
+      background: #0f172a;
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin: 0.75rem 0 0.15rem;
+      flex-wrap: wrap;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.15s ease, transform 0.08s ease, border-color 0.15s ease;
+    }
+    .dot.active {
+      background: #f97316;
+      border-color: #f97316;
+      transform: scale(1.05);
+    }
+    .hint { color:#94a3b8; font-size: 0.9rem; text-align: center; margin-top: 0.2rem; }
+    .chapter-list { margin-top: 1.4rem; }
+    @media (max-width: 700px) {
+      body { margin-top: 1rem; }
+      h1 { font-size: 1.6rem; }
+      .chapter-title { font-size: 1.15rem; }
+      .slide iframe { min-height: 320px; height: 65vh; }
+      .nav-btn { padding: 0.4rem 0.65rem; }
+    }
   </style>
 </head>
 <body>
-  <h1>Digital Marketing Tutorials</h1>
+  <header class="page-header">
+    <h1>Digital Marketing Tutorials</h1>
+    <p class="lede">Swipe through the chapters directly from here, or jump via the list below. Arrow keys and the nav buttons also move between chapters.</p>
+  </header>
 
-  <ul>
-    <li><a href="chapter01.html"><span class="chapter-num">Ch. 1</span>Intro to Digital Marketing & Web Fundamentals</a></li>
-    <li><a href="chapter02.html"><span class="chapter-num">Ch. 2</span>Web Design for Conversion</a></li>
-    <li><a href="chapter03.html"><span class="chapter-num">Ch. 3</span>Analytics & Measurement</a></li>
-    <li><a href="chapter04.html"><span class="chapter-num">Ch. 4</span>SEO Foundations (On-Site)</a></li>
-    <li><a href="chapter05.html"><span class="chapter-num">Ch. 5</span>Off-Site SEO, Links & Content Marketing</a></li>
-    <li><a href="chapter06.html"><span class="chapter-num">Ch. 6</span>Paid Search Advertising</a></li>
-    <li><a href="chapter07.html"><span class="chapter-num">Ch. 7</span>Display Advertising (Banner Ads)</a></li>
-    <li><a href="chapter08.html"><span class="chapter-num">Ch. 8</span>Email Marketing & CRM</a></li>
-    <li><a href="chapter09.html"><span class="chapter-num">Ch. 9</span>Social Media Marketing Strategy</a></li>
-    <li><a href="chapter10.html"><span class="chapter-num">Ch. 10</span>Social Media Platforms Overview</a></li>
-    <li><a href="chapter11.html"><span class="chapter-num">Ch. 11</span>Online Reputation Management</a></li>
-    <li><a href="chapter12.html"><span class="chapter-num">Ch. 12</span>Mobile Marketing</a></li>
-    <li><a href="chapter13.html"><span class="chapter-num">Ch. 13</span>Digital Marketing Strategy Framework</a></li>
-  </ul>
+  <section class="carousel" aria-label="Chapter carousel">
+    <div class="carousel-head">
+      <div>
+        <p class="eyebrow">Swipeable chapters</p>
+        <p class="chapter-meta">Chapter <span id="chapterNumber">1</span> of <span id="chapterTotal">13</span></p>
+        <p class="chapter-title" id="chapterTitle">Intro to Digital Marketing & Web Fundamentals</p>
+      </div>
+      <div class="controls">
+        <button class="nav-btn" id="prevChapter" type="button" aria-label="Previous chapter">← Prev</button>
+        <button class="nav-btn" id="nextChapter" type="button" aria-label="Next chapter">Next →</button>
+      </div>
+    </div>
+    <div class="carousel-viewport" id="carouselViewport">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+    <div class="carousel-dots" id="carouselDots" aria-label="Chapter navigation"></div>
+    <p class="hint">Swipe left/right on the slide, use the arrow keys, or tap the controls above.</p>
+  </section>
 
+  <section class="chapter-list">
+    <h2>Jump directly to a chapter</h2>
+    <ul>
+      <li><a href="chapter01.html"><span class="chapter-num">Ch. 1</span>Intro to Digital Marketing & Web Fundamentals</a></li>
+      <li><a href="chapter02.html"><span class="chapter-num">Ch. 2</span>Web Design for Conversion</a></li>
+      <li><a href="chapter03.html"><span class="chapter-num">Ch. 3</span>Analytics & Measurement</a></li>
+      <li><a href="chapter04.html"><span class="chapter-num">Ch. 4</span>SEO Foundations (On-Site)</a></li>
+      <li><a href="chapter05.html"><span class="chapter-num">Ch. 5</span>Off-Site SEO, Links & Content Marketing</a></li>
+      <li><a href="chapter06.html"><span class="chapter-num">Ch. 6</span>Paid Search Advertising</a></li>
+      <li><a href="chapter07.html"><span class="chapter-num">Ch. 7</span>Display Advertising (Banner Ads)</a></li>
+      <li><a href="chapter08.html"><span class="chapter-num">Ch. 8</span>Email Marketing & CRM</a></li>
+      <li><a href="chapter09.html"><span class="chapter-num">Ch. 9</span>Social Media Marketing Strategy</a></li>
+      <li><a href="chapter10.html"><span class="chapter-num">Ch. 10</span>Social Media Platforms Overview</a></li>
+      <li><a href="chapter11.html"><span class="chapter-num">Ch. 11</span>Online Reputation Management</a></li>
+      <li><a href="chapter12.html"><span class="chapter-num">Ch. 12</span>Mobile Marketing</a></li>
+      <li><a href="chapter13.html"><span class="chapter-num">Ch. 13</span>Digital Marketing Strategy Framework</a></li>
+    </ul>
+  </section>
+
+  <script>
+    const chapters = [
+      { title: 'Intro to Digital Marketing & Web Fundamentals', file: 'chapter01.html' },
+      { title: 'Web Design for Conversion', file: 'chapter02.html' },
+      { title: 'Analytics & Measurement', file: 'chapter03.html' },
+      { title: 'SEO Foundations (On-Site)', file: 'chapter04.html' },
+      { title: 'Off-Site SEO, Links & Content Marketing', file: 'chapter05.html' },
+      { title: 'Paid Search Advertising', file: 'chapter06.html' },
+      { title: 'Display Advertising (Banner Ads)', file: 'chapter07.html' },
+      { title: 'Email Marketing & CRM', file: 'chapter08.html' },
+      { title: 'Social Media Marketing Strategy', file: 'chapter09.html' },
+      { title: 'Social Media Platforms Overview', file: 'chapter10.html' },
+      { title: 'Online Reputation Management', file: 'chapter11.html' },
+      { title: 'Mobile Marketing', file: 'chapter12.html' },
+      { title: 'Digital Marketing Strategy Framework', file: 'chapter13.html' }
+    ];
+
+    const track = document.getElementById('carouselTrack');
+    const dots = document.getElementById('carouselDots');
+    const chapterNumberEl = document.getElementById('chapterNumber');
+    const chapterTotalEl = document.getElementById('chapterTotal');
+    const chapterTitleEl = document.getElementById('chapterTitle');
+    const prevBtn = document.getElementById('prevChapter');
+    const nextBtn = document.getElementById('nextChapter');
+    const viewport = document.getElementById('carouselViewport');
+
+    let currentIndex = 0;
+    let startX = 0;
+    let deltaX = 0;
+    let dragging = false;
+    const swipeThreshold = 55;
+
+    function buildSlides() {
+      chapterTotalEl.textContent = chapters.length;
+      chapters.forEach((chapter, idx) => {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+
+        const frame = document.createElement('iframe');
+        frame.src = chapter.file;
+        frame.loading = idx === 0 ? 'eager' : 'lazy';
+        frame.title = `Chapter ${idx + 1}: ${chapter.title}`;
+        frame.setAttribute('tabindex', '-1');
+        slide.appendChild(frame);
+
+        track.appendChild(slide);
+
+        const dot = document.createElement('button');
+        dot.className = 'dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Go to chapter ${idx + 1}`);
+        dot.addEventListener('click', () => goTo(idx));
+        dots.appendChild(dot);
+      });
+      updateUI();
+    }
+
+    function goTo(index) {
+      const total = chapters.length;
+      currentIndex = (index + total) % total;
+      updateUI();
+    }
+
+    function updateUI() {
+      track.style.transition = 'transform 0.35s ease';
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      chapterNumberEl.textContent = currentIndex + 1;
+      chapterTitleEl.textContent = chapters[currentIndex].title;
+
+      Array.from(dots.children).forEach((dot, idx) => {
+        const active = idx === currentIndex;
+        dot.classList.toggle('active', active);
+        dot.setAttribute('aria-pressed', active);
+      });
+    }
+
+    function handleKeyNavigation(event) {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goTo(currentIndex - 1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goTo(currentIndex + 1);
+      }
+    }
+
+    function pointerStart(event) {
+      dragging = true;
+      startX = event.clientX;
+      deltaX = 0;
+      track.style.transition = 'none';
+    }
+
+    function pointerMove(event) {
+      if (!dragging) return;
+      deltaX = event.clientX - startX;
+      const percentShift = (deltaX / viewport.offsetWidth) * 100;
+      track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${percentShift}%))`;
+    }
+
+    function pointerEnd() {
+      if (!dragging) return;
+      dragging = false;
+      if (deltaX > swipeThreshold) {
+        goTo(currentIndex - 1);
+      } else if (deltaX < -swipeThreshold) {
+        goTo(currentIndex + 1);
+      } else {
+        updateUI();
+      }
+      deltaX = 0;
+    }
+
+    buildSlides();
+
+    prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+    window.addEventListener('keydown', handleKeyNavigation);
+
+    viewport.addEventListener('pointerdown', pointerStart);
+    viewport.addEventListener('pointermove', pointerMove);
+    viewport.addEventListener('pointerup', pointerEnd);
+    viewport.addEventListener('pointercancel', pointerEnd);
+    viewport.addEventListener('pointerleave', () => dragging && pointerEnd());
+  </script>
 </body>
 </html>
-
