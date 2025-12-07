@@ -351,20 +351,18 @@
     nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
     window.addEventListener('keydown', handleKeyNavigation);
 
-    const swipeTargets = [viewport, ...swipeZones];
-    swipeTargets.forEach((target) => {
-      target.addEventListener('pointerdown', pointerStart);
-      target.addEventListener('pointermove', pointerMove);
-      target.addEventListener('pointerup', pointerEnd);
-      target.addEventListener('pointercancel', pointerEnd);
-      target.addEventListener('pointerleave', () => dragging && pointerEnd());
+    // Attach event listeners to the viewport
+    viewport.addEventListener('pointerdown', pointerStart);
+    viewport.addEventListener('pointermove', pointerMove);
+    viewport.addEventListener('pointerup', pointerEnd);
+    viewport.addEventListener('pointercancel', pointerEnd);
+    viewport.addEventListener('pointerleave', () => dragging && pointerEnd());
 
-      // For touch events, we need to use { passive: false } to be able to call preventDefault()
-      target.addEventListener('touchstart', touchStart, { passive: false });
-      target.addEventListener('touchmove', touchMove, { passive: false });
-      target.addEventListener('touchend', touchEnd, { passive: true });
-      target.addEventListener('touchcancel', touchEnd, { passive: true });
-    });
+    // For touch events, we need to use { passive: false } to be able to call preventDefault()
+    viewport.addEventListener('touchstart', touchStart, { passive: false });
+    viewport.addEventListener('touchmove', touchMove, { passive: false });
+    viewport.addEventListener('touchend', touchEnd, { passive: true });
+    viewport.addEventListener('touchcancel', touchEnd, { passive: true });
     
     // Also attach touch events to the iframes themselves
     document.querySelectorAll('.slide iframe').forEach(iframe => {
