@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marketing & UX Flashcards (MCQ)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: none;
+      background: #38bdf8;
+      color: #020617;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .grid {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 280px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: 0.4s;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .face {
+      position: absolute;
+      inset: 0;
+      background: #111827;
+      border-radius: 16px;
+      padding: 1rem;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      background: #075985;
+    }
+
+    ul {
+      padding-left: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .answer {
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Flashcards</h1>
+
+<div class="controls">
+  <button id="shuffleBtn">Shuffle</button>
+  <button id="resetBtn">Reset</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<!-- ✅ LOAD DATA FILE -->
+<script src="cards.js"></script>
+
+<!-- ✅ MAIN APP LOGIC -->
+<script>
+  const grid = document.getElementById("grid");
+
+  function renderCards(data) {
+    grid.innerHTML = "";
+    data.forEach(card => {
+      const el = document.createElement("div");
+      el.className = "card";
+
+      el.innerHTML = `
+        <div class="card-inner">
+          <div class="face front">
+            <strong>${card.topic}</strong>
+            <p>${card.question}</p>
+            <ul>
+              ${card.options.map(o => `<li>${o}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="face back">
+            <div class="answer">Answer: ${card.answer}</div>
+            <div>${card.explanation}</div>
+          </div>
+        </div>
+      `;
+
+      el.addEventListener("click", () => {
+        el.classList.toggle("flipped");
+      });
+
+      grid.appendChild(el);
+    });
+  }
+
+  function shuffle(arr) {
+    return [...arr].sort(() => Math.random() - 0.5);
+  }
+
+  document.getElementById("shuffleBtn").onclick = () => renderCards(shuffle(cards));
+  document.getElementById("resetBtn").onclick = () => renderCards(cards);
+
+  // ✅ Initial render
+  renderCards(cards);
+</script>
+
+</body>
+</html>
+
