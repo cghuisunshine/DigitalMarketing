@@ -211,6 +211,7 @@ button.active {
   <button id="prevBtn">← Prev</button>
   <button id="shuffleBtn">Shuffle</button>
   <button id="failedBtn">Practice Failed (0)</button>
+  <button id="removeFailedBtn">Remove from Failed</button>
   <button id="resetBtn">Reset</button>
   <button id="nextBtn">Next →</button>
 </div>
@@ -239,6 +240,7 @@ button.active {
   const front = document.getElementById("front");
   const back = document.getElementById("back");
   const failedBtn = document.getElementById("failedBtn");
+  const removeFailedBtn = document.getElementById("removeFailedBtn");
   const FAILED_STORAGE_KEY = "flashcards_failed_indexes";
   const SEQUENCE_STORAGE_KEY = "flashcards_sequence_state";
 
@@ -257,13 +259,17 @@ button.active {
     performance.get(question) || { attempts: 0, correct: 0, wrong: 0 };
 
   const getFailedCards = () =>
-    cards
-      .map((card) => ({ card, stats: getPerf(card.question) }))
-      .filter(({ stats }) => stats.wrong > stats.correct)
+    [...failedIndexes]
+      .map((idx) => {
+        const card = cards[idx];
+        return card ? { card, idx, stats: getPerf(card.question) } : null;
+      })
+      .filter(Boolean)
       .sort(
         (a, b) =>
           b.stats.wrong - a.stats.wrong ||
-          b.stats.attempts - a.stats.attempts
+          b.stats.attempts - a.stats.attempts ||
+          a.idx - b.idx
       )
       .map((entry) => entry.card);
 
@@ -349,12 +355,8 @@ button.active {
     showingFailedOnly = saved.showingFailedOnly;
   }
 
-  function syncFailedDeckAfterAnswer(question) {
+  function syncFailedDeck() {
     if (!showingFailedOnly) return;
-    const stats = getPerf(question);
-    const stillFailing = stats.wrong > stats.correct;
-    if (stillFailing) return;
-
     const failed = getFailedCards();
     if (failed.length) {
       order = failed;
@@ -402,6 +404,16 @@ button.active {
     persistSequenceState();
   }
 
+  function updateRemoveFailedButton() {
+    const current = order[index];
+    if (!current) return;
+    const cardIndex = cards.findIndex(
+      (card) => card.question === current.question
+    );
+    const isFailed = cardIndex !== -1 && failedIndexes.has(cardIndex);
+    removeFailedBtn.disabled = !isFailed;
+  }
+
   function attachOptionHandlers() {
     const optionButtons = front.querySelectorAll(".option");
     optionButtons.forEach((btn) => {
@@ -431,9 +443,9 @@ button.active {
           wrong: stats.wrong + (isCorrect ? 0 : 1),
         });
         selectionState.set(order[index].question, selected === correct);
-        syncFailedStorage(question);
+        const failedChanged = syncFailedStorage(question);
         updateStats();
-        syncFailedDeckAfterAnswer(question);
+        if (failedChanged) syncFailedDeck();
       });
     });
   }
@@ -461,6 +473,7 @@ button.active {
       ${topMisses.length ? `<br><small>Most missed: ${topMisses.join(" · ")}</small>` : ""}
     `;
     updateFailedButton();
+    updateRemoveFailedButton();
   }
 
   function next() {
@@ -522,17 +535,32 @@ button.active {
 
   function syncFailedStorage(question) {
     const cardIndex = cards.findIndex((card) => card.question === question);
-    if (cardIndex === -1) return;
+    if (cardIndex === -1) return false;
 
     const stats = getPerf(question);
     const isFailing = stats.wrong > stats.correct;
-    if (isFailing) {
+    const alreadyFailed = failedIndexes.has(cardIndex);
+    if (isFailing && !alreadyFailed) {
       failedIndexes.add(cardIndex);
-    } else {
-      failedIndexes.delete(cardIndex);
+      persistFailedIndexes();
+      return true;
     }
-    persistFailedIndexes();
+    return false;
   }
+
+  removeFailedBtn.onclick = () => {
+    const current = order[index];
+    if (!current) return;
+    const cardIndex = cards.findIndex(
+      (card) => card.question === current.question
+    );
+    if (cardIndex === -1) return;
+    const removed = failedIndexes.delete(cardIndex);
+    if (!removed) return;
+    persistFailedIndexes();
+    updateStats();
+    syncFailedDeck();
+  };
 
   applyFailedIndexesToPerformance();
   applySequenceState();
