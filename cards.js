@@ -429,7 +429,7 @@
           "Counterfactual prediction",
           "Shifting paid to unpaid traffic"
         ],
-        answer: "Investigate which traffic source produced the best quality traffic",
+        answer: "Best traffic quality investigation",
         explanation: "Channel analysis compares performance across acquisition sources."
       },
       {
