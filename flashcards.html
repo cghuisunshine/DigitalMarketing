@@ -21,36 +21,48 @@
       margin: 0;
     }
 
-    .controls {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      justify-content: center;
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
       width: 100%;
       max-width: 680px;
     }
 
-    button {
-      padding: 0.55rem 1.2rem;
-      border-radius: 999px;
-      border: none;
-      background: #38bdf8;
+button {
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  background: #38bdf8;
       color: #020617;
       font-weight: 700;
       cursor: pointer;
       transition: transform 0.1s ease, box-shadow 0.2s ease;
     }
 
-    button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
-    }
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
 
-    .deck {
-      width: 100%;
-      max-width: 780px;
-      position: relative;
-      display: flex;
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+button.active {
+  background: #22c55e;
+  color: #022c22;
+}
+
+.deck {
+  width: 100%;
+  max-width: 780px;
+  position: relative;
+  display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.75rem;
@@ -181,10 +193,14 @@
       color: #94a3b8;
     }
 
-    .stats {
-      font-size: 0.95rem;
-      color: #cbd5e1;
-    }
+.stats {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.stats small {
+  color: #94a3b8;
+}
   </style>
 </head>
 <body>
@@ -194,6 +210,7 @@
 <div class="controls">
   <button id="prevBtn">← Prev</button>
   <button id="shuffleBtn">Shuffle</button>
+  <button id="failedBtn">Practice Failed (0)</button>
   <button id="resetBtn">Reset</button>
   <button id="nextBtn">Next →</button>
 </div>
@@ -221,14 +238,58 @@
   const cardInner = document.getElementById("cardInner");
   const front = document.getElementById("front");
   const back = document.getElementById("back");
+  const failedBtn = document.getElementById("failedBtn");
 
   let order = [...cards];
   let index = 0;
   let didSwipe = false;
   let feedbackEl = null;
   let selectionState = new Map(); // question -> boolean (correct?)
+  let performance = new Map(); // question -> {attempts, correct, wrong}
+  let showingFailedOnly = false;
 
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+
+  const getPerf = (question) =>
+    performance.get(question) || { attempts: 0, correct: 0, wrong: 0 };
+
+  const getFailedCards = () =>
+    cards
+      .map((card) => ({ card, stats: getPerf(card.question) }))
+      .filter(({ stats }) => stats.wrong > stats.correct)
+      .sort(
+        (a, b) =>
+          b.stats.wrong - a.stats.wrong ||
+          b.stats.attempts - a.stats.attempts
+      )
+      .map((entry) => entry.card);
+
+  function syncFailedDeckAfterAnswer(question) {
+    if (!showingFailedOnly) return;
+    const stats = getPerf(question);
+    const stillFailing = stats.wrong > stats.correct;
+    if (stillFailing) return;
+
+    const failed = getFailedCards();
+    if (failed.length) {
+      order = failed;
+      index = Math.min(index, failed.length - 1);
+    } else {
+      showingFailedOnly = false;
+      order = [...cards];
+      index = 0;
+    }
+    renderCard();
+  }
+
+  function updateFailedButton() {
+    const failedCount = getFailedCards().length;
+    failedBtn.textContent = showingFailedOnly
+      ? "Practice All"
+      : `Practice Failed (${failedCount})`;
+    failedBtn.disabled = failedCount === 0 && !showingFailedOnly;
+    failedBtn.classList.toggle("active", showingFailedOnly);
+  }
 
   function renderCard() {
     const current = order[index];
@@ -272,10 +333,20 @@
         if (selected !== correct) {
           btn.classList.add("incorrect");
         }
+        optionButtons.forEach((b) => (b.disabled = true));
 
         showFeedback(selected, correct, order[index].explanation || "");
+        const isCorrect = selected === correct;
+        const question = order[index].question;
+        const stats = getPerf(question);
+        performance.set(question, {
+          attempts: stats.attempts + 1,
+          correct: stats.correct + (isCorrect ? 1 : 0),
+          wrong: stats.wrong + (isCorrect ? 0 : 1),
+        });
         selectionState.set(order[index].question, selected === correct);
         updateStats();
+        syncFailedDeckAfterAnswer(question);
       });
     });
   }
@@ -291,7 +362,18 @@
   function updateStats() {
     const answered = selectionState.size;
     const correct = [...selectionState.values()].filter(Boolean).length;
-    statsEl.textContent = `Score: ${correct} / ${answered || 0}`;
+    const failedCards = getFailedCards();
+    const topMisses = failedCards.slice(0, 3).map((card) => {
+      const stats = getPerf(card.question);
+      const label = card.question.length > 60 ? `${card.question.slice(0, 57)}...` : card.question;
+      return `${label} (${stats.wrong}/${stats.attempts})`;
+    });
+
+    statsEl.innerHTML = `
+      Score: ${correct} / ${answered || 0} · Failed cards: ${failedCards.length}
+      ${topMisses.length ? `<br><small>Most missed: ${topMisses.join(" · ")}</small>` : ""}
+    `;
+    updateFailedButton();
   }
 
   function next() {
@@ -325,15 +407,29 @@
   document.getElementById("nextBtn").onclick = next;
   document.getElementById("prevBtn").onclick = prev;
   document.getElementById("shuffleBtn").onclick = () => {
-    order = shuffle(cards);
+    const base = showingFailedOnly ? getFailedCards() : [...cards];
+    order = shuffle(base.length ? base : cards);
     index = 0;
-    selectionState = new Map();
     renderCard();
   };
   document.getElementById("resetBtn").onclick = () => {
     order = [...cards];
     index = 0;
     selectionState = new Map();
+    showingFailedOnly = false;
+    renderCard();
+  };
+  failedBtn.onclick = () => {
+    if (showingFailedOnly) {
+      showingFailedOnly = false;
+      order = [...cards];
+    } else {
+      const failed = getFailedCards();
+      if (!failed.length) return;
+      showingFailedOnly = true;
+      order = failed;
+    }
+    index = 0;
     renderCard();
   };
 
