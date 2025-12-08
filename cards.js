@@ -462,7 +462,7 @@
           "Website traffic volume",
           "Internal page links"
         ],
-        answer: "The extent to which a web page's content matches the search query",
+        answer: "Content matching query",
         explanation: "Relevance measures content alignment with user intent."
       },
       {
@@ -484,7 +484,7 @@
           "Other categories rank better",
           "Product pages auto-optimize"
         ],
-        answer: "Images rank better in image search",
+        answer: "Improved image search rankings",
         explanation: "Alt text directly supports Google Image Search visibility."
       },
       {
